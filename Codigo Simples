@@ -1,0 +1,934 @@
+import tkinter as tk
+from tkinter import simpledialog
+
+# Selecao
+def selecionar_exercicio():
+    root = tk.Tk()
+    root.withdraw()
+    exercicio = simpledialog.askinteger("Selecionar Exercício", "Digite o número do exercício (1 a 100):", minvalue=1, maxvalue=100)
+    return exercicio
+
+# exercicios:
+def executar_exercicio(exercicio):
+    if exercicio == 1:
+        print("\n--- Exercício 1: Área e Perímetro de um Retângulo ---")
+        base = float(input("Digite o tamanho da base do retângulo: "))
+        altura = float(input("Digite o tamanho da altura do retângulo: "))
+        area = base * altura
+        perimetro = 2 * (base + altura)
+        print(f"Área do retângulo: {area}")
+        print(f"Perímetro do retângulo: {perimetro}")
+
+    elif exercicio == 2:
+        print("\n--- Exercício 2: Área e Perímetro de um Quadrado ---")
+        lado = float(input("Digite o tamanho do lado do quadrado: "))
+        area = lado * lado
+        perimetro = 4 * lado
+        print(f"Área do quadrado: {area}")
+        print(f"Perímetro do quadrado: {perimetro}")
+
+    elif exercicio == 3:
+        print("\n--- Exercício 3: Área e Perímetro de uma Circunferência ---")
+        raio = float(input("Digite o tamanho do raio da circunferência: "))
+        area = 3.14 * raio * raio
+        perimetro = 2 * 3.14 * raio
+        print(f"Área da circunferência: {area}")
+        print(f"Perímetro da circunferência: {perimetro}")
+
+    elif exercicio == 4:
+        print("\n--- Exercício 4: Perímetro de um Triângulo ---")
+        lado1 = float(input("Digite o tamanho do primeiro lado do triângulo: "))
+        lado2 = float(input("Digite o tamanho do segundo lado do triângulo: "))
+        lado3 = float(input("Digite o tamanho do terceiro lado do triângulo: "))
+        perimetro = lado1 + lado2 + lado3
+        print(f"Perímetro do triângulo: {perimetro}")
+
+    elif exercicio == 5:
+        print("\n--- Exercício 5: Sucessor de um Número ---")
+        numero = int(input("Digite um número inteiro: "))
+        print(f"O sucessor de {numero} é: {numero + 1}")
+
+    elif exercicio == 6:
+        print("\n--- Exercício 6: Quociente e Resto da Divisão ---")
+        num1 = int(input("Digite o primeiro número inteiro: "))
+        num2 = int(input("Digite o segundo número inteiro: "))
+        print(f"Quociente da divisão: {num1 // num2}")
+        print(f"Resto da divisão: {num1 % num2}")
+
+    elif exercicio == 7:
+        print("\n--- Exercício 7: Idade em Anos, Meses e Dias ---")
+        idade_dias = int(input("Digite a idade em dias: "))
+        anos = idade_dias // 365
+        meses = (idade_dias % 365) // 30
+        dias = (idade_dias % 365) % 30
+        print(f"Idade: {anos} anos, {meses} meses e {dias} dias")
+
+    elif exercicio == 8:
+        print("\n--- Exercício 8: Conversão de Fahrenheit para Celsius ---")
+        fahrenheit = float(input("Digite a temperatura em Fahrenheit: "))
+        celsius = 5 / 9 * (fahrenheit - 32)
+        print(f"Temperatura em Celsius: {celsius:.2f}")
+
+    elif exercicio == 9:
+        print("\n--- Exercício 9: Volume de uma Lata de Óleo ---")
+        raio = float(input("Digite o raio da lata de óleo: "))
+        altura = float(input("Digite a altura da lata de óleo: "))
+        volume = 3.14 * raio * raio * altura
+        print(f"Volume da lata de óleo: {volume:.2f}")
+
+    elif exercicio == 10:
+        print("\n--- Exercício 10: Conversão para Binário ---")
+        numero = int(input("Digite um número inteiro menor que 32: "))
+        if numero < 32:
+            print(f"Representação em binário: {bin(numero)}")
+        else:
+            print("Número inválido. Deve ser menor que 32.")
+
+    elif exercicio == 11:
+        print("\n--- Exercício 11: Nota Semestral ---")
+        nota1_bim1 = float(input("Digite a primeira nota do primeiro bimestre: "))
+        nota2_bim1 = float(input("Digite a segunda nota do primeiro bimestre: "))
+        nota1_bim2 = float(input("Digite a primeira nota do segundo bimestre: "))
+        nota2_bim2 = float(input("Digite a segunda nota do segundo bimestre: "))
+        media_bim1 = (nota1_bim1 + nota2_bim1) / 2
+        media_bim2 = (nota1_bim2 + nota2_bim2) / 2
+        media_semestral = (media_bim1 + media_bim2) / 2
+        print(f"Média semestral: {media_semestral:.2f}")
+
+    elif exercicio == 12:
+        print("\n--- Exercício 12: Conversão de m/s para km/h ---")
+        velocidade_ms = float(input("Digite a velocidade em m/s: "))
+        velocidade_kmh = velocidade_ms * 3.6
+        print(f"Velocidade em km/h: {velocidade_kmh:.2f}")
+
+    elif exercicio == 13:
+        print("\n--- Exercício 13: Resistência Equivalente de um Circuito ---")
+        r1 = float(input("Digite o valor da resistência R1: "))
+        r2 = float(input("Digite o valor da resistência R2: "))
+        r3 = float(input("Digite o valor da resistência R3: "))
+        req = (r1 * r2) / (r1 + r2) + r3
+        print(f"Resistência equivalente: {req:.2f}")
+
+    elif exercicio == 14:
+        print("\n--- Exercício 14: Sincronização de Semáforos ---")
+        distancia = float(input("Digite a distância entre os semáforos (em metros): "))
+        velocidade = float(input("Digite a velocidade permitida na via (em m/s): "))
+        aceleracao = float(input("Digite a aceleração típica dos carros (em m/s²): "))
+        tempo = distancia / velocidade
+        tempo_semaforo = tempo - 3
+        print(f"O semáforo deve abrir {tempo_semaforo:.2f} segundos depois.")
+
+    elif exercicio == 15:
+        print("\n--- Exercício 15: Altura de um Prédio ---")
+        sombra_predio = float(input("Digite o tamanho da sombra do prédio (em metros): "))
+        sombra_pessoa = float(input("Digite o tamanho da sua sombra (em metros): "))
+        altura_pessoa = float(input("Digite a sua altura (em metros): "))
+        altura_predio = (sombra_predio / sombra_pessoa) * altura_pessoa
+        print(f"Altura do prédio: {altura_predio:.2f} metros")
+
+    elif exercicio == 16:
+        print("\n--- Exercício 16: Inverter Número de Três Algarismos ---")
+        numero = int(input("Digite um número com três algarismos: "))
+        invertido = int(str(numero)[::-1])
+        print(f"Número invertido: {invertido}")
+
+    elif exercicio == 17:
+        print("\n--- Exercício 17: Distribuição de Notas ---")
+        valor = int(input("Digite o valor do saque: "))
+        notas = [100, 50, 20, 10, 5, 2, 1]
+        for nota in notas:
+            qtd = valor // nota
+            print(f"{qtd} nota(s) de R$ {nota},00")
+            valor %= nota
+
+    elif exercicio == 18:
+        print("\n--- Exercício 18: Troca de Valores ---")
+        a = int(input("Digite o valor de A: "))
+        b = int(input("Digite o valor de B: "))
+        a, b = b, a
+        print(f"Valores trocados: A = {a}, B = {b}")
+
+    elif exercicio == 19:
+        print("\n--- Exercício 19: Raiz de Equação do Primeiro Grau ---")
+        a = float(input("Digite o coeficiente A: "))
+        b = float(input("Digite o coeficiente B: "))
+        if a == 0:
+            print("Não é uma equação do primeiro grau.")
+        else:
+            x = -b / a
+            print(f"A raiz da equação é: {x:.2f}")
+
+    elif exercicio == 20:
+        print("\n--- Exercício 20: Entrada e Prestações ---")
+        valor = float(input("Digite o valor da mercadoria: "))
+        entrada = valor / 3
+        prestacao = entrada
+        print(f"Entrada: R$ {entrada:.2f}")
+        print(f"Prestações: 2x R$ {prestacao:.2f}")
+
+    elif exercicio == 21:
+        print("\n--- Exercício 21: Verificar se um Número é Positivo ou Negativo ---")
+        numero = float(input("Digite um número: "))
+        if numero >= 0:
+            print("O número é positivo.")
+        else:
+            print("O número é negativo.")
+
+    elif exercicio == 22:
+        print("\n--- Exercício 22: Módulo de um Número ---")
+        numero = float(input("Digite um número: "))
+        print(f"O módulo do número é: {abs(numero)}")
+
+    elif exercicio == 23:
+        print("\n--- Exercício 23: Verificar se um Número é Par ---")
+        numero = int(input("Digite um número inteiro: "))
+        if numero % 2 == 0:
+            print("O número é par.")
+        else:
+            print("O número é ímpar.")
+
+    elif exercicio == 24:
+        print("\n--- Exercício 24: Maior entre Três Números ---")
+        a = float(input("Digite o primeiro número: "))
+        b = float(input("Digite o segundo número: "))
+        c = float(input("Digite o terceiro número: "))
+        maior = max(a, b, c)
+        print(f"O maior número é: {maior}")
+
+    elif exercicio == 25:
+        print("\n--- Exercício 25: Dias de um Mês ---")
+        mes = int(input("Digite o número do mês (1 a 12): "))
+        if mes in [1, 3, 5, 7, 8, 10, 12]:
+            print("O mês tem 31 dias.")
+        elif mes in [4, 6, 9, 11]:
+            print("O mês tem 30 dias.")
+        else:
+            print("O mês tem 28 dias (ou 29, se for bissexto).")
+
+    elif exercicio == 26:
+        print("\n--- Exercício 26: Soma dos Dois Maiores Números ---")
+        a = float(input("Digite o primeiro número: "))
+        b = float(input("Digite o segundo número: "))
+        c = float(input("Digite o terceiro número: "))
+        maiores = sorted([a, b, c], reverse=True)[:2]
+        print(f"A soma dos dois maiores números é: {sum(maiores)}")
+
+    elif exercicio == 27:
+        print("\n--- Exercício 27: Média Ponderada ---")
+        a = float(input("Digite o primeiro número: "))
+        b = float(input("Digite o segundo número: "))
+        c = float(input("Digite o terceiro número: "))
+        maior = max(a, b, c)
+        if maior == a:
+            media = (a * 5 + b * 2.5 + c * 2.5) / 10
+        elif maior == b:
+            media = (b * 5 + a * 2.5 + c * 2.5) / 10
+        else:
+            media = (c * 5 + a * 2.5 + b * 2.5) / 10
+        print(f"Média ponderada: {media:.2f}")
+
+    elif exercicio == 28:
+        print("\n--- Exercício 28: Verificar se uma Letra é Vogal ou Consoante ---")
+        letra = input("Digite uma letra: ").lower()
+        if letra in ['a', 'e', 'i', 'o', 'u']:
+            print("A letra é uma vogal.")
+        else:
+            print("A letra é uma consoante.")
+
+    elif exercicio == 29:
+        print("\n--- Exercício 29: Desconto Previdenciário ---")
+        salario = float(input("Digite o salário: "))
+        desconto = min(salario * 0.11, 334.29)
+        print(f"Desconto previdenciário: R$ {desconto:.2f}")
+
+    elif exercicio == 30:
+        print("\n--- Exercício 30: Tabela de Descontos de Combustível ---")
+        litros = float(input("Digite o número de litros vendidos: "))
+        tipo = input("Digite o tipo de combustível (A para Álcool, G para Gasolina): ").upper()
+        if tipo == 'A':
+            if litros <= 25:
+                preco = litros * 1.90 * 0.98
+            else:
+                preco = litros * 1.90 * 0.96
+        else:
+            if litros <= 25:
+                preco = litros * 2.70 * 0.97
+            else:
+                preco = litros * 2.70 * 0.95
+        print(f"Valor a ser pago: R$ {preco:.2f}")
+
+    elif exercicio == 31:
+        print("\n--- Exercício 31: Quarterback Rating ---")
+        passes_tentados = int(input("Digite o número de passes tentados: "))
+        passes_completos = int(input("Digite o número de passes completos: "))
+        jardas_passadas = int(input("Digite o número de jardas passadas: "))
+        passes_touchdown = int(input("Digite o número de passes para touchdown: "))
+        passes_interceptados = int(input("Digite o número de passes interceptados: "))
+
+        a = min(max((passes_completos / passes_tentados - 0.3) / 0.2, 0), 2.375)
+        b = min(max((jardas_passadas / passes_tentados - 3) / 4, 0), 2.375)
+        c = min(max((passes_touchdown / passes_tentados) / 0.05, 0), 2.375)
+        d = min(max((0.095 - passes_interceptados / passes_tentados) / 0.04, 0), 2.375)
+
+        qb_rating = (a + b + c + d) * 100 / 6
+        print(f"Quarterback Rating: {qb_rating:.2f}")
+
+    elif exercicio == 32:
+        print("\n--- Exercício 32: Verificar Tipo de Caracter ---")
+        caracter = input("Digite um caracter: ")
+        if caracter.isalpha():
+            if caracter.lower() in ['a', 'e', 'i', 'o', 'u']:
+                print("O caracter é uma vogal.")
+            else:
+                print("O caracter é uma consoante.")
+        elif caracter.isdigit():
+            print("O caracter é um número.")
+        else:
+            print("O caracter é um símbolo.")
+
+    elif exercicio == 33:
+        print("\n--- Exercício 33: Verificar Quadrante de um Ponto ---")
+        x = float(input("Digite a coordenada X: "))
+        y = float(input("Digite a coordenada Y: "))
+        if x == 0 and y == 0:
+            print("O ponto está na origem.")
+        elif x == 0:
+            print("O ponto está sobre o eixo Y.")
+        elif y == 0:
+            print("O ponto está sobre o eixo X.")
+        elif x > 0 and y > 0:
+            print("O ponto está no quadrante 1.")
+        elif x < 0 and y > 0:
+            print("O ponto está no quadrante 2.")
+        elif x < 0 and y < 0:
+            print("O ponto está no quadrante 3.")
+        else:
+            print("O ponto está no quadrante 4.")
+
+    elif exercicio == 34:
+        print("\n--- Exercício 34: Verificar Empréstimo ---")
+        renda = float(input("Digite a renda mensal: "))
+        emprestimo = float(input("Digite o valor do empréstimo: "))
+        prestacoes = int(input("Digite o número de prestações: "))
+        valor_prestacao = emprestimo / prestacoes
+        if emprestimo <= 10 * renda and valor_prestacao <= 0.3 * renda:
+            print("Empréstimo concedido.")
+        else:
+            print("Empréstimo não concedido.")
+
+    elif exercicio == 35:
+        print("\n--- Exercício 35: Dia da Semana ---")
+        dia = int(input("Digite um número de 1 a 7: "))
+        dias_semana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+        if 1 <= dia <= 7:
+            print(f"O dia correspondente é: {dias_semana[dia - 1]}")
+        else:
+            print("Número inválido.")
+
+    elif exercicio == 36:
+        print("\n--- Exercício 36: Classificação em Exames ---")
+        notas = [float(input(f"Digite a nota do exame {i + 1}: ")) for i in range(5)]
+        media = sum(notas) / 5
+        if all(nota >= 70 for nota in notas):
+            print("Classificação: A")
+        elif notas[0] >= 70 and notas[1] >= 70 and notas[3] >= 70 and (notas[2] < 70 or notas[4] < 70):
+            print("Classificação: B")
+        elif notas[0] >= 70 and notas[1] >= 70 and (notas[2] >= 70 or notas[3] >= 70) and notas[4] < 70:
+            print("Classificação: C")
+        else:
+            print("Reprovado.")
+
+    elif exercicio == 37:
+        print("\n--- Exercício 37: Custo de Pulverização ---")
+        tipo = int(input("Digite o tipo de pulverização (1 a 4): "))
+        area = float(input("Digite a área a ser pulverizada (em acres): "))
+        if tipo == 1:
+            custo = 50 * area
+        elif tipo == 2:
+            custo = 100 * area
+        elif tipo == 3:
+            custo = 150 * area
+        else:
+            custo = 250 * area
+        if area > 1000:
+            custo *= 0.95
+        if custo > 750:
+            custo -= (custo - 750) * 0.1
+        print(f"Custo total: R$ {custo:.2f}")
+
+    elif exercicio == 38:
+        print("\n--- Exercício 38: Verificar Ano Bissexto ---")
+        ano = int(input("Digite o ano: "))
+        if (ano % 4 == 0 and ano % 100 != 0) or ano % 400 == 0:
+            print("O ano é bissexto.")
+        else:
+            print("O ano não é bissexto.")
+
+    elif exercicio == 39:
+        print("\n--- Exercício 39: Dígito Verificador de Agência ---")
+        agencia = input("Digite os 4 primeiros dígitos da agência: ")
+        digitos = [int(d) for d in agencia]
+        soma = digitos[0] * 5 + digitos[1] * 4 + digitos[2] * 3 + digitos[3] * 2
+        dv = 11 - (soma % 11)
+        if dv == 10:
+            dv = 'X'
+        print(f"Agência completa: {agencia}-{dv}")
+
+    elif exercicio == 40:
+        print("\n--- Exercício 40: Número por Extenso ---")
+        numero = int(input("Digite um número de 1 a 100: "))
+        extenso = ["Um", "Dois", "Três", "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove", "Dez"]
+        if 1 <= numero <= 10:
+            print(extenso[numero - 1])
+        else:
+            print("Número fora do intervalo.")
+
+    elif exercicio == 41:
+        print("\n--- Exercício 41: Números de 1 a 100 ---")
+        for i in range(1, 101):
+            print(i)
+
+    elif exercicio == 42:
+        print("\n--- Exercício 42: Números de 100 a 1 ---")
+        for i in range(100, 0, -1):
+            print(i)
+
+    elif exercicio == 43:
+        print("\n--- Exercício 43: Números Pares de 1 a 100 ---")
+        for i in range(1, 101):
+            if i % 2 == 0:
+                print(i)
+
+    elif exercicio == 44:
+        print("\n--- Exercício 44: Soma dos Números de 1 a 100 ---")
+        soma = 0
+        for i in range(1, 101):
+            soma += i
+        print(f"Soma total: {soma}")
+
+    elif exercicio == 45:
+        print("\n--- Exercício 45: Média de 5 Números ---")
+        numeros = [float(input(f"Digite o {i + 1}º número: ")) for i in range(5)]
+        media = sum(numeros) / 5
+        print(f"Média: {media:.2f}")
+
+    elif exercicio == 46:
+        print("\n--- Exercício 46: Quociente por Subtrações Sucessivas ---")
+        a = int(input("Digite o valor de A: "))
+        b = int(input("Digite o valor de B: "))
+        quociente = 0
+        while a >= b:
+            a -= b
+            quociente += 1
+        print(f"Quociente: {quociente}")
+
+    elif exercicio == 47:
+        print("\n--- Exercício 47: Resto por Subtrações Sucessivas ---")
+        a = int(input("Digite o valor de A: "))
+        b = int(input("Digite o valor de B: "))
+        while a >= b:
+            a -= b
+        print(f"Resto: {a}")
+
+    elif exercicio == 48:
+        print("\n--- Exercício 48: Verificar Número Primo ---")
+        n = int(input("Digite um número: "))
+        primo = True
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                primo = False
+                break
+        print("Primo" if primo else "Não primo")
+
+    elif exercicio == 49:
+        print("\n--- Exercício 49: Verificar Número Primo (Repetido) ---")
+        n = int(input("Digite um número: "))
+        primo = True
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                primo = False
+                break
+        print("Primo" if primo else "Não primo")
+
+    elif exercicio == 50:
+        print("\n--- Exercício 50: Combinações de Dados ---")
+        soma = int(input("Digite o valor da soma desejada: "))
+        for i in range(1, 7):
+            for j in range(1, 7):
+                if i + j == soma:
+                    print(f"{i} {j}")
+
+    elif exercicio == 51:
+        print("\n--- Exercício 51: Série de Fibonacci ---")
+        n = int(input("Digite o número de termos da série: "))
+        a, b = 1, 1
+        for _ in range(n):
+            print(a)
+            a, b = b, a + b
+
+    elif exercicio == 52:
+        print("\n--- Exercício 52: Série de Fetuccine ---")
+        a1 = int(input("Digite o primeiro termo: "))
+        a2 = int(input("Digite o segundo termo: "))
+        n = int(input("Digite o número de termos: "))
+        print(a1)
+        print(a2)
+        for i in range(3, n + 1):
+            if i % 2 == 1:
+                a3 = a2 + a1
+            else:
+                a3 = a2 - a1
+            print(a3)
+            a1, a2 = a2, a3
+
+    elif exercicio == 53:
+        print("\n--- Exercício 53: Crescimento Populacional ---")
+        pop_a = 5000000
+        pop_b = 7000000
+        taxa_a = 0.03
+        taxa_b = 0.02
+        anos = 0
+        while pop_a <= pop_b:
+            pop_a *= (1 + taxa_a)
+            pop_b *= (1 + taxa_b)
+            anos += 1
+        print(f"Anos necessários: {anos}")
+
+    elif exercicio == 54:
+        print("\n--- Exercício 54: Número Triangular ---")
+        n = int(input("Digite um número: "))
+        i = 1
+        while i * (i + 1) * (i + 2) < n:
+            i += 1
+        if i * (i + 1) * (i + 2) == n:
+            print("O número é triangular.")
+        else:
+            print("O número não é triangular.")
+
+    elif exercicio == 55:
+        print("\n--- Exercício 55: Números Amigos ---")
+        a = int(input("Digite o primeiro número: "))
+        b = int(input("Digite o segundo número: "))
+        def soma_divisores(n):
+            soma = 0
+            for i in range(1, n):
+                if n % i == 0:
+                    soma += i
+            return soma
+        if soma_divisores(a) == b and soma_divisores(b) == a:
+            print("Os números são amigos.")
+        else:
+            print("Os números não são amigos.")
+
+    elif exercicio == 56:
+        print("\n--- Exercício 56: Número Perfeito ---")
+        n = int(input("Digite um número: "))
+        soma = 0
+        for i in range(1, n):
+            if n % i == 0:
+                soma += i
+        if soma == n:
+            print("O número é perfeito.")
+        else:
+            print("O número não é perfeito.")
+
+    elif exercicio == 57:
+        print("\n--- Exercício 57: Somatório de Série ---")
+        n = int(input("Digite o número de termos: "))
+        s = 0
+        for i in range(1, n + 1):
+            s += 1 / (i ** 2)
+        print(f"Somatório: {s:.2f}")
+
+    elif exercicio == 58:
+        print("\n--- Exercício 58: Aproximação de Pi ---")
+        n = int(input("Digite o número de termos: "))
+        s = 0
+        for i in range(n):
+            s += (-1) ** i / (2 * i + 1)
+        pi = 4 * s
+        print(f"Valor de Pi: {pi:.5f}")
+
+    elif exercicio == 59:
+        print("\n--- Exercício 59: Número de Euler ---")
+        n = int(input("Digite o número de termos: "))
+        e = 0
+        for i in range(n):
+            e += 1 / (i + 1)
+        print(f"Valor de Euler: {e:.5f}")
+
+    elif exercicio == 60:
+        print("\n--- Exercício 60: Conjectura de Goldbach ---")
+        def eh_primo(n):
+            if n < 2:
+                return False
+            for i in range(2, int(n ** 0.5) + 1):
+                if n % i == 0:
+                    return False
+            return True
+
+        for num in range(500, 1001, 2):
+            for i in range(2, num // 2 + 1):
+                if eh_primo(i) and eh_primo(num - i):
+                    print(f"{num} = {i} + {num - i}")
+                    break
+
+    elif exercicio == 61:
+        print("\n--- Exercício 61: Array de 20 Posições ---")
+        array = [0] * 20
+        for i in range(20):
+            print(f"Posição {i}: {array[i]}")
+
+    elif exercicio == 62:
+        print("\n--- Exercício 62: Contar Números Pares em Array ---")
+        array = [int(input(f"Digite o {i + 1}º número: ")) for i in range(10)]
+        pares = sum(1 for x in array if x % 2 == 0)
+        print(f"Números pares: {pares}")
+
+    elif exercicio == 63:
+        print("\n--- Exercício 63: Soma de Vetores ---")
+        vetor1 = [float(input(f"Digite o {i + 1}º número do primeiro vetor: ")) for i in range(10)]
+        vetor2 = [float(input(f"Digite o {i + 1}º número do segundo vetor: ")) for i in range(10)]
+        vetor_soma = [vetor1[i] + vetor2[i] for i in range(10)]
+        print(f"Vetor soma: {vetor_soma}")
+
+    elif exercicio == 64:
+        print("\n--- Exercício 64: Menor e Maior Valor em Array ---")
+        array = [int(input(f"Digite o {i + 1}º número: ")) for i in range(20)]
+        print(f"Menor valor: {min(array)}")
+        print(f"Maior valor: {max(array)}")
+
+    elif exercicio == 65:
+        print("\n--- Exercício 65: Menor e Maior Valor com Posições ---")
+        array = [int(input(f"Digite o {i + 1}º número: ")) for i in range(20)]
+        min_val = min(array)
+        max_val = max(array)
+        min_index = array.index(min_val)
+        max_index = array.index(max_val)
+        print(f"Menor valor: {min_val} (Posição {min_index})")
+        print(f"Maior valor: {max_val} (Posição {max_index})")
+
+    elif exercicio == 66:
+        print("\n--- Exercício 66: Copiar Vetor ---")
+        vetor1 = [int(input(f"Digite o {i + 1}º número: ")) for i in range(10)]
+        vetor2 = vetor1.copy()
+        print(f"Vetor copiado: {vetor2}")
+
+    elif exercicio == 67:
+        print("\n--- Exercício 67: Maior Valor em Cada Posição ---")
+        vetor1 = [int(input(f"Digite o {i + 1}º número do primeiro vetor: ")) for i in range(10)]
+        vetor2 = [int(input(f"Digite o {i + 1}º número do segundo vetor: ")) for i in range(10)]
+        vetor3 = [max(vetor1[i], vetor2[i]) for i in range(10)]
+        print(f"Vetor resultante: {vetor3}")
+
+    elif exercicio == 68:
+        print("\n--- Exercício 68: Índice Pluviométrico ---")
+        indices = [float(input(f"Digite o índice pluviométrico do dia {i + 1}: ")) for i in range(30)]
+        mais_choveu = indices.index(max(indices)) + 1
+        menos_choveu = indices.index(min(indices)) + 1
+        media_quinzena1 = sum(indices[:15]) / 15
+        media_quinzena2 = sum(indices[15:]) / 15
+        print(f"Dia que mais choveu: {mais_choveu}")
+        print(f"Dia que menos choveu: {menos_choveu}")
+        print(f"Média da primeira quinzena: {media_quinzena1:.2f}")
+        print(f"Média da segunda quinzena: {media_quinzena2:.2f}")
+
+    elif exercicio == 69:
+        print("\n--- Exercício 69: Contar Ocorrências em Vetor ---")
+        vetor = [int(input(f"Digite o {i + 1}º número: ")) for i in range(15)]
+        valor = int(input("Digite o valor a ser contado: "))
+        print(f"O valor {valor} aparece {vetor.count(valor)} vezes.")
+
+    elif exercicio == 70:
+        print("\n--- Exercício 70: Array com Sentinela ---")
+        array = []
+        while True:
+            valor = input("Digite um número (ou pressione Enter para parar): ")
+            if valor == '':
+                break
+            array.append(int(valor))
+        print(f"Array final: {array}")
+
+    elif exercicio == 71:
+        print("\n--- Exercício 71: Busca Sequencial ---")
+        vetor = [int(input(f"Digite o {i + 1}º número: ")) for i in range(10)]
+        valor = int(input("Digite o valor a ser buscado: "))
+        try:
+            print(f"O valor {valor} está na posição {vetor.index(valor)}.")
+        except ValueError:
+            print(-1)
+
+    elif exercicio == 72:
+        print("\n--- Exercício 72: Busca Binária ---")
+        vetor = [int(input(f"Digite o {i + 1}º número (em ordem crescente): ")) for i in range(10)]
+        valor = int(input("Digite o valor a ser buscado: "))
+        try:
+            print(f"O valor {valor} está na posição {vetor.index(valor)}.")
+        except ValueError:
+            print(-1)
+
+    elif exercicio == 73:
+        print("\n--- Exercício 73: Moda, Mediana e Média ---")
+        array = [int(input(f"Digite o {i + 1}º número: ")) for i in range(20)]
+        moda = max(set(array), key=array.count)
+        mediana = sorted(array)[10]
+        media = sum(array) / 20
+        print(f"Moda: {moda}")
+        print(f"Mediana: {mediana}")
+        print(f"Média: {media:.2f}")
+
+    elif exercicio == 74:
+        print("\n--- Exercício 74: Operações com Vetor ---")
+        vetor = []
+        def inserir_final(valor):
+            vetor.append(valor)
+
+        def inserir_posicao(valor, posicao):
+            vetor.insert(posicao, valor)
+
+        def remover_posicao(posicao):
+            vetor.pop(posicao)
+
+        def remover_valor(valor):
+            while valor in vetor:
+                vetor.remove(valor)
+
+        def sem_duplicidades():
+            return list(set(vetor))
+
+        # Exemplo de uso:
+        inserir_final(10)
+        inserir_posicao(20, 0)
+        remover_posicao(0)
+        remover_valor(10)
+        print(f"Vetor sem duplicidades: {sem_duplicidades()}")
+
+    elif exercicio == 75:
+        print("\n--- Exercício 75: Ordenação por Bubble Sort ---")
+        array = [int(input(f"Digite o {i + 1}º número: ")) for i in range(15)]
+        for i in range(len(array)):
+            for j in range(len(array) - 1):
+                if array[j] > array[j + 1]:
+                    array[j], array[j + 1] = array[j + 1], array[j]
+        print(f"Array ordenado: {array}")
+
+    elif exercicio == 76:
+        print("\n--- Exercício 76: Contar Vogais em String ---")
+        string = input("Digite uma string: ")
+        vogais = sum(1 for char in string if char.lower() in ['a', 'e', 'i', 'o', 'u'])
+        print(f"Número de vogais: {vogais}")
+
+    elif exercicio == 77:
+        print("\n--- Exercício 77: Inverter String ---")
+        string = input("Digite uma string: ")
+        invertida = string[::-1]
+        print(f"String invertida: {invertida}")
+
+    elif exercicio == 78:
+        print("\n--- Exercício 78: Contar Ocorrências de Caracter ---")
+        string = input("Digite uma string: ")
+        caracter = input("Digite o caracter a ser contado: ")
+        print(f"O caracter '{caracter}' aparece {string.count(caracter)} vezes.")
+
+    elif exercicio == 79:
+        print("\n--- Exercício 79: Substring ---")
+        string = input("Digite uma string: ")
+        inicio = int(input("Digite a posição inicial: "))
+        fim = int(input("Digite a posição final: "))
+        print(f"Substring: {string[inicio:fim]}")
+
+    elif exercicio == 80:
+        print("\n--- Exercício 80: Verificar Substring ---")
+        string1 = input("Digite a primeira string: ")
+        string2 = input("Digite a segunda string: ")
+        print(f"A segunda string está contida na primeira? {string2 in string1}")
+
+    elif exercicio == 81:
+        print("\n--- Exercício 81: Normalizar String ---")
+        string = input("Digite uma string: ")
+        normalizada = ' '.join(string.split())
+        print(f"String normalizada: {normalizada}")
+
+    elif exercicio == 82:
+        print("\n--- Exercício 82: Maior Palavra em String ---")
+        string = input("Digite uma string: ")
+        palavras = string.split()
+        maior = max(palavras, key=len)
+        print(f"Maior palavra: {maior}")
+
+    elif exercicio == 83:
+        print("\n--- Exercício 83: Substring (Repetido) ---")
+        string = input("Digite uma string: ")
+        inicio = int(input("Digite a posição inicial: "))
+        fim = int(input("Digite a posição final: "))
+        print(f"Substring: {string[inicio:fim]}")
+
+    elif exercicio == 84:
+        print("\n--- Exercício 84: Verificar Palíndromo ---")
+        string = input("Digite uma string: ")
+        normalizada = ' '.join(string.split())
+        print(f"A string é um palíndromo? {normalizada == normalizada[::-1]}")
+
+    elif exercicio == 85:
+        print("\n--- Exercício 85: Conversão de Hexadecimal para Decimal ---")
+        hexadecimal = input("Digite um número hexadecimal: ")
+        decimal = int(hexadecimal, 16)
+        print(f"Valor em decimal: {decimal}")
+
+    elif exercicio == 86:
+        print("\n--- Exercício 86: Conversão de Número Romano para Decimal ---")
+        romano = input("Digite um número romano: ")
+        valores = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        decimal = 0
+        for i in range(len(romano)):
+            if i > 0 and valores[romano[i]] > valores[romano[i - 1]]:
+                decimal += valores[romano[i]] - 2 * valores[romano[i - 1]]
+            else:
+                decimal += valores[romano[i]]
+        print(f"Valor em decimal: {decimal}")
+
+    elif exercicio == 87:
+        print("\n--- Exercício 87: Comparar Strings (Case Insensitive) ---")
+        string1 = input("Digite a primeira string: ")
+        string2 = input("Digite a segunda string: ")
+        print(f"As strings são iguais? {string1.lower() == string2.lower()}")
+
+    elif exercicio == 88:
+        print("\n--- Exercício 88: Converter String para Caixa Alta ---")
+        string = input("Digite uma string: ")
+        print(f"String em caixa alta: {string.upper()}")
+
+    elif exercicio == 89:
+        print("\n--- Exercício 89: Formatar Nome ---")
+        nome = input("Digite o nome completo: ")
+        partes = nome.split()
+        ultimo_nome = partes[-1]
+        iniciais = '. '.join([parte[0] for parte in partes[:-1]]) + '.'
+        print(f"Nome formatado: {ultimo_nome}, {iniciais}")
+
+    elif exercicio == 90:
+        print("\n--- Exercício 90: Separar Vogais e Consoantes ---")
+        string = input("Digite uma string: ")
+        vogais = ''.join([char for char in string if char.lower() in ['a', 'e', 'i', 'o', 'u']])
+        consoantes = ''.join([char for char in string if char.lower() not in ['a', 'e', 'i', 'o', 'u'] and char.isalpha()])
+        print(f"Vogais: {vogais}")
+        print(f"Consoantes: {consoantes}")
+
+    elif exercicio == 91:
+        print("\n--- Exercício 91: Soma de Linhas e Colunas em Matriz ---")
+        matriz = [[int(input(f"Digite o valor para a posição [{i + 1},{j + 1}]: ")) for j in range(5)] for i in range(5)]
+        somaLinhas = [sum(linha) for linha in matriz]
+        somaColunas = [sum(coluna) for coluna in zip(*matriz)]
+        print(f"Soma das linhas: {somaLinhas}")
+        print(f"Soma das colunas: {somaColunas}")
+
+    elif exercicio == 92:
+        print("\n--- Exercício 92: Verificar Matriz Simétrica ---")
+        matriz = [[int(input(f"Digite o valor para a posição [{i + 1},{j + 1}]: ")) for j in range(5)] for i in range(5)]
+        simetrica = True
+        for i in range(5):
+            for j in range(5):
+                if matriz[i][j] != matriz[j][i]:
+                    simetrica = False
+                    break
+        print(f"A matriz é simétrica? {simetrica}")
+
+    elif exercicio == 93:
+        print("\n--- Exercício 93: Soma das Diagonais de uma Matriz ---")
+        matriz = [[int(input(f"Digite o valor para a posição [{i + 1},{j + 1}]: ")) for j in range(5)] for i in range(5)]
+        diagonal_principal = sum(matriz[i][i] for i in range(5))
+        diagonal_secundaria = sum(matriz[i][4 - i] for i in range(5))
+        print(f"Soma da diagonal principal: {diagonal_principal}")
+        print(f"Soma da diagonal secundária: {diagonal_secundaria}")
+
+    elif exercicio == 94:
+        print("\n--- Exercício 94: Multiplicar Matriz por Escalar ---")
+        matriz = [[int(input(f"Digite o valor para a posição [{i + 1},{j + 1}]: ")) for j in range(6)] for i in range(6)]
+        valor = int(input("Digite o valor escalar: "))
+        for i in range(6):
+            for j in range(6):
+                matriz[i][j] *= valor
+        print(f"Matriz resultante: {matriz}")
+
+    elif exercicio == 95:
+        print("\n--- Exercício 95: Linearizar Matriz ---")
+        matriz = [[int(input(f"Digite o valor para a posição [{i + 1},{j + 1}]: ")) for j in range(6)] for i in range(6)]
+        vetor = [matriz[i][j] for i in range(6) for j in range(6)]
+        print(f"Vetor linearizado: {vetor}")
+
+    elif exercicio == 96:
+        print("\n--- Exercício 96: Soma e Diferença de Matrizes ---")
+        matriz1 = [[int(input(f"Digite o valor para a posição [{i + 1},{j + 1}] da primeira matriz: ")) for j in range(4)] for i in range(3)]
+        matriz2 = [[int(input(f"Digite o valor para a posição [{i + 1},{j + 1}] da segunda matriz: ")) for j in range(4)] for i in range(3)]
+        matriz_soma = [[matriz1[i][j] + matriz2[i][j] for j in range(4)] for i in range(3)]
+        matriz_diferenca = [[matriz1[i][j] - matriz2[i][j] for j in range(4)] for i in range(3)]
+        print(f"Matriz soma: {matriz_soma}")
+        print(f"Matriz diferença: {matriz_diferenca}")
+
+    elif exercicio == 97:
+        print("\n--- Exercício 97: Trocar Linhas, Colunas e Diagonais ---")
+        matriz = [[int(input(f"Digite o valor para a posição [{i + 1},{j + 1}]: ")) for j in range(5)] for i in range(5)]
+        x = int(input("Digite o índice da linha/coluna a ser trocada: "))
+        y = int(input("Digite o índice da linha/coluna a ser trocada: "))
+        matriz[x], matriz[y] = matriz[y], matriz[x]
+        for i in range(5):
+            matriz[i][x], matriz[i][y] = matriz[i][y], matriz[i][x]
+        for i in range(5):
+            matriz[i][i], matriz[i][4 - i] = matriz[i][4 - i], matriz[i][i]
+        print(f"Matriz modificada: {matriz}")
+
+    elif exercicio == 98:
+        print("\n--- Exercício 98: Multiplicação de Matrizes ---")
+        matriz1 = [[int(input(f"Digite o valor para a posição [{i + 1},{j + 1}] da primeira matriz: ")) for j in range(3)] for i in range(4)]
+        matriz2 = [[int(input(f"Digite o valor para a posição [{i + 1},{j + 1}] da segunda matriz: ")) for j in range(2)] for i in range(3)]
+        matriz_produto = [[sum(matriz1[i][k] * matriz2[k][j] for k in range(3)) for j in range(2)] for i in range(4)]
+        print(f"Matriz produto: {matriz_produto}")
+
+    elif exercicio == 99:
+        print("\n--- Exercício 99: Frequência de Idades de Casamento ---")
+        frequencia = [[0] * 13 for _ in range(13)]
+        while True:
+            idade_homem = int(input("Digite a idade do homem (ou 0 para sair): "))
+            idade_mulher = int(input("Digite a idade da mulher (ou 0 para sair): "))
+            if idade_homem < 18 or idade_mulher < 18:
+                break
+            frequencia[idade_homem - 18][idade_mulher - 18] += 1
+        max_homem = max(range(13), key=lambda i: sum(frequencia[i]))
+        max_mulher = max(range(13), key=lambda i: sum([frequencia[j][i] for j in range(13)]))
+        max_combinacao = max((i, j) for i in range(13) for j in range(13) if frequencia[i][j] == max(map(max, frequencia)))
+        print(f"Idade mais frequente dos homens: {max_homem + 18}")
+        print(f"Idade mais frequente das mulheres: {max_mulher + 18}")
+        print(f"Combinação mais frequente: ({max_combinacao[0] + 18}, {max_combinacao[1] + 18})")
+
+    elif exercicio == 100:
+        print("\n--- Exercício 100: Verificar Quadrado Latino ---")
+        n = int(input("Digite o tamanho da matriz (N): "))
+        matriz = [[int(input(f"Digite o valor para a posição [{i + 1},{j + 1}]: ")) for j in range(n)] for i in range(n)]
+        quadrado_latino = True
+        for i in range(n):
+            if sorted(matriz[i]) != list(range(1, n + 1)):
+                quadrado_latino = False
+                break
+        if quadrado_latino:
+            for j in range(n):
+                coluna = [matriz[i][j] for i in range(n)]
+                if sorted(coluna) != list(range(1, n + 1)):
+                    quadrado_latino = False
+                    break
+
+        print(f"A matriz é um quadrado latino? {quadrado_latino}")
+
+    else:
+        print("Exercício ainda não implementado ou inválido.")
+
+# Função principal
+def main():
+    exercicio = selecionar_exercicio()
+    if exercicio:
+        print(f"\nExecutando exercício {exercicio}...")
+        executar_exercicio(exercicio)
+    else:
+        print("Nenhum exercício selecionado.")
+
+if __name__ == "__main__":
+    main()
