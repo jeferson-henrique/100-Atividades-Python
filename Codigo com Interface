@@ -1,0 +1,2142 @@
+import tkinter as tk
+from tkinter import simpledialog, messagebox, ttk
+
+# Selecao
+def selecionar_exercicio():
+    root = tk.Tk()
+    root.withdraw()
+    exercicio = simpledialog.askinteger("Selecionar Exercício", "Digite o número do exercício (1 a 100):", minvalue=1, maxvalue=100)
+    return exercicio
+
+# exercicios:
+def executar_exercicio(exercicio):
+    root = tk.Tk()
+    root.title(f"Exercício {exercicio}")
+
+    def on_closing():
+        root.quit()
+        root.destroy()
+
+    root.protocol("WM_DELETE_WINDOW", on_closing)
+    
+    if exercicio == 1:
+        label_base = tk.Label(root, text="Digite o tamanho da base do retângulo:")
+        label_base.pack()
+        entry_base = tk.Entry(root)
+        entry_base.pack()
+
+        label_altura = tk.Label(root, text="Digite o tamanho da altura do retângulo:")
+        label_altura.pack()
+        entry_altura = tk.Entry(root)
+        entry_altura.pack()
+
+        def calcular():
+            base = float(entry_base.get())
+            altura = float(entry_altura.get())
+            area = base * altura
+            perimetro = 2 * (base + altura)
+            messagebox.showinfo("Resultado", f"Área do retângulo: {area}\nPerímetro do retângulo: {perimetro}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 2:
+        label_lado = tk.Label(root, text="Digite o tamanho do lado do quadrado:")
+        label_lado.pack()
+        entry_lado = tk.Entry(root)
+        entry_lado.pack()
+
+        def calcular():
+            lado = float(entry_lado.get())
+            area = lado * lado
+            perimetro = 4 * lado
+            messagebox.showinfo("Resultado", f"Área do quadrado: {area}\nPerímetro do quadrado: {perimetro}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 3:
+        label_raio = tk.Label(root, text="Digite o tamanho do raio da circunferência:")
+        label_raio.pack()
+        entry_raio = tk.Entry(root)
+        entry_raio.pack()
+
+        def calcular():
+            raio = float(entry_raio.get())
+            area = 3.14 * raio * raio
+            perimetro = 2 * 3.14 * raio
+            messagebox.showinfo("Resultado", f"Área da circunferência: {area}\nPerímetro da circunferência: {perimetro}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 4:
+        label_lado1 = tk.Label(root, text="Digite o tamanho do primeiro lado do triângulo:")
+        label_lado1.pack()
+        entry_lado1 = tk.Entry(root)
+        entry_lado1.pack()
+
+        label_lado2 = tk.Label(root, text="Digite o tamanho do segundo lado do triângulo:")
+        label_lado2.pack()
+        entry_lado2 = tk.Entry(root)
+        entry_lado2.pack()
+
+        label_lado3 = tk.Label(root, text="Digite o tamanho do terceiro lado do triângulo:")
+        label_lado3.pack()
+        entry_lado3 = tk.Entry(root)
+        entry_lado3.pack()
+
+        def calcular():
+            lado1 = float(entry_lado1.get())
+            lado2 = float(entry_lado2.get())
+            lado3 = float(entry_lado3.get())
+            perimetro = lado1 + lado2 + lado3
+            messagebox.showinfo("Resultado", f"Perímetro do triângulo: {perimetro}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 5:
+        label_numero = tk.Label(root, text="Digite um número inteiro:")
+        label_numero.pack()
+        entry_numero = tk.Entry(root)
+        entry_numero.pack()
+
+        def calcular():
+            numero = int(entry_numero.get())
+            messagebox.showinfo("Resultado", f"O sucessor de {numero} é: {numero + 1}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 6:
+        label_num1 = tk.Label(root, text="Digite o primeiro número inteiro:")
+        label_num1.pack()
+        entry_num1 = tk.Entry(root)
+        entry_num1.pack()
+
+        label_num2 = tk.Label(root, text="Digite o segundo número inteiro:")
+        label_num2.pack()
+        entry_num2 = tk.Entry(root)
+        entry_num2.pack()
+
+        def calcular():
+            num1 = int(entry_num1.get())
+            num2 = int(entry_num2.get())
+            messagebox.showinfo("Resultado", f"Quociente da divisão: {num1 // num2}\nResto da divisão: {num1 % num2}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 7:
+        label_idade_dias = tk.Label(root, text="Digite a idade em dias:")
+        label_idade_dias.pack()
+        entry_idade_dias = tk.Entry(root)
+        entry_idade_dias.pack()
+
+        def calcular():
+            idade_dias = int(entry_idade_dias.get())
+            anos = idade_dias // 365
+            meses = (idade_dias % 365) // 30
+            dias = (idade_dias % 365) % 30
+            messagebox.showinfo("Resultado", f"Idade: {anos} anos, {meses} meses e {dias} dias")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 8:
+        label_fahrenheit = tk.Label(root, text="Digite a temperatura em Fahrenheit:")
+        label_fahrenheit.pack()
+        entry_fahrenheit = tk.Entry(root)
+        entry_fahrenheit.pack()
+
+        def calcular():
+            fahrenheit = float(entry_fahrenheit.get())
+            celsius = 5 / 9 * (fahrenheit - 32)
+            messagebox.showinfo("Resultado", f"Temperatura em Celsius: {celsius:.2f}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 9:
+        label_raio = tk.Label(root, text="Digite o raio da lata de óleo:")
+        label_raio.pack()
+        entry_raio = tk.Entry(root)
+        entry_raio.pack()
+
+        label_altura = tk.Label(root, text="Digite a altura da lata de óleo:")
+        label_altura.pack()
+        entry_altura = tk.Entry(root)
+        entry_altura.pack()
+
+        def calcular():
+            raio = float(entry_raio.get())
+            altura = float(entry_altura.get())
+            volume = 3.14 * raio * raio * altura
+            messagebox.showinfo("Resultado", f"Volume da lata de óleo: {volume:.2f}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 10:
+        label_numero = tk.Label(root, text="Digite um número inteiro menor que 32:")
+        label_numero.pack()
+        entry_numero = tk.Entry(root)
+        entry_numero.pack()
+
+        def calcular():
+            numero = int(entry_numero.get())
+            if numero < 32:
+                messagebox.showinfo("Resultado", f"Representação em binário: {bin(numero)}")
+            else:
+                messagebox.showerror("Erro", "Número inválido. Deve ser menor que 32.")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 11:
+        label_nota1_bim1 = tk.Label(root, text="Digite a primeira nota do primeiro bimestre:")
+        label_nota1_bim1.pack()
+        entry_nota1_bim1 = tk.Entry(root)
+        entry_nota1_bim1.pack()
+
+        label_nota2_bim1 = tk.Label(root, text="Digite a segunda nota do primeiro bimestre:")
+        label_nota2_bim1.pack()
+        entry_nota2_bim1 = tk.Entry(root)
+        entry_nota2_bim1.pack()
+
+        label_nota1_bim2 = tk.Label(root, text="Digite a primeira nota do segundo bimestre:")
+        label_nota1_bim2.pack()
+        entry_nota1_bim2 = tk.Entry(root)
+        entry_nota1_bim2.pack()
+
+        label_nota2_bim2 = tk.Label(root, text="Digite a segunda nota do segundo bimestre:")
+        label_nota2_bim2.pack()
+        entry_nota2_bim2 = tk.Entry(root)
+        entry_nota2_bim2.pack()
+
+        def calcular():
+            nota1_bim1 = float(entry_nota1_bim1.get())
+            nota2_bim1 = float(entry_nota2_bim1.get())
+            nota1_bim2 = float(entry_nota1_bim2.get())
+            nota2_bim2 = float(entry_nota2_bim2.get())
+            media_bim1 = (nota1_bim1 + nota2_bim1) / 2
+            media_bim2 = (nota1_bim2 + nota2_bim2) / 2
+            media_semestral = (media_bim1 + media_bim2) / 2
+            messagebox.showinfo("Resultado", f"Média semestral: {media_semestral:.2f}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 12:
+        label_velocidade_ms = tk.Label(root, text="Digite a velocidade em m/s:")
+        label_velocidade_ms.pack()
+        entry_velocidade_ms = tk.Entry(root)
+        entry_velocidade_ms.pack()
+
+        def calcular():
+            velocidade_ms = float(entry_velocidade_ms.get())
+            velocidade_kmh = velocidade_ms * 3.6
+            messagebox.showinfo("Resultado", f"Velocidade em km/h: {velocidade_kmh:.2f}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 13:
+        label_r1 = tk.Label(root, text="Digite o valor da resistência R1:")
+        label_r1.pack()
+        entry_r1 = tk.Entry(root)
+        entry_r1.pack()
+
+        label_r2 = tk.Label(root, text="Digite o valor da resistência R2:")
+        label_r2.pack()
+        entry_r2 = tk.Entry(root)
+        entry_r2.pack()
+
+        label_r3 = tk.Label(root, text="Digite o valor da resistência R3:")
+        label_r3.pack()
+        entry_r3 = tk.Entry(root)
+        entry_r3.pack()
+
+        def calcular():
+            r1 = float(entry_r1.get())
+            r2 = float(entry_r2.get())
+            r3 = float(entry_r3.get())
+            req = (r1 * r2) / (r1 + r2) + r3
+            messagebox.showinfo("Resultado", f"Resistência equivalente: {req:.2f}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 14:
+        label_distancia = tk.Label(root, text="Digite a distância entre os semáforos (em metros):")
+        label_distancia.pack()
+        entry_distancia = tk.Entry(root)
+        entry_distancia.pack()
+
+        label_velocidade = tk.Label(root, text="Digite a velocidade permitida na via (em m/s):")
+        label_velocidade.pack()
+        entry_velocidade = tk.Entry(root)
+        entry_velocidade.pack()
+
+        label_aceleracao = tk.Label(root, text="Digite a aceleração típica dos carros (em m/s²):")
+        label_aceleracao.pack()
+        entry_aceleracao = tk.Entry(root)
+        entry_aceleracao.pack()
+
+        def calcular():
+            distancia = float(entry_distancia.get())
+            velocidade = float(entry_velocidade.get())
+            aceleracao = float(entry_aceleracao.get())
+            tempo = distancia / velocidade
+            tempo_semaforo = tempo - 3
+            messagebox.showinfo("Resultado", f"O semáforo deve abrir {tempo_semaforo:.2f} segundos depois.")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 15:
+        label_sombra_predio = tk.Label(root, text="Digite o tamanho da sombra do prédio (em metros):")
+        label_sombra_predio.pack()
+        entry_sombra_predio = tk.Entry(root)
+        entry_sombra_predio.pack()
+
+        label_sombra_pessoa = tk.Label(root, text="Digite o tamanho da sua sombra (em metros):")
+        label_sombra_pessoa.pack()
+        entry_sombra_pessoa = tk.Entry(root)
+        entry_sombra_pessoa.pack()
+
+        label_altura_pessoa = tk.Label(root, text="Digite a sua altura (em metros):")
+        label_altura_pessoa.pack()
+        entry_altura_pessoa = tk.Entry(root)
+        entry_altura_pessoa.pack()
+
+        def calcular():
+            sombra_predio = float(entry_sombra_predio.get())
+            sombra_pessoa = float(entry_sombra_pessoa.get())
+            altura_pessoa = float(entry_altura_pessoa.get())
+            altura_predio = (sombra_predio / sombra_pessoa) * altura_pessoa
+            messagebox.showinfo("Resultado", f"Altura do prédio: {altura_predio:.2f} metros")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 16:
+        label_numero = tk.Label(root, text="Digite um número com três algarismos:")
+        label_numero.pack()
+        entry_numero = tk.Entry(root)
+        entry_numero.pack()
+
+        def calcular():
+            numero = int(entry_numero.get())
+            invertido = int(str(numero)[::-1])
+            messagebox.showinfo("Resultado", f"Número invertido: {invertido}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 17:
+        label_valor = tk.Label(root, text="Digite o valor do saque:")
+        label_valor.pack()
+        entry_valor = tk.Entry(root)
+        entry_valor.pack()
+
+        def calcular():
+            valor = int(entry_valor.get())
+            notas = [100, 50, 20, 10, 5, 2, 1]
+            resultado = ""
+            for nota in notas:
+                qtd = valor // nota
+                resultado += f"{qtd} nota(s) de R$ {nota},00\n"
+                valor %= nota
+            messagebox.showinfo("Resultado", resultado)
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 18:
+        label_a = tk.Label(root, text="Digite o valor de A:")
+        label_a.pack()
+        entry_a = tk.Entry(root)
+        entry_a.pack()
+
+        label_b = tk.Label(root, text="Digite o valor de B:")
+        label_b.pack()
+        entry_b = tk.Entry(root)
+        entry_b.pack()
+
+        def calcular():
+            a = int(entry_a.get())
+            b = int(entry_b.get())
+            a, b = b, a
+            messagebox.showinfo("Resultado", f"Valores trocados: A = {a}, B = {b}")
+
+        button = tk.Button(root, text="Trocar", command=calcular)
+        button.pack()
+
+    elif exercicio == 19:
+        label_a = tk.Label(root, text="Digite o coeficiente A:")
+        label_a.pack()
+        entry_a = tk.Entry(root)
+        entry_a.pack()
+
+        label_b = tk.Label(root, text="Digite o coeficiente B:")
+        label_b.pack()
+        entry_b = tk.Entry(root)
+        entry_b.pack()
+
+        def calcular():
+            a = float(entry_a.get())
+            b = float(entry_b.get())
+            if a == 0:
+                messagebox.showerror("Erro", "Não é uma equação do primeiro grau.")
+            else:
+                x = -b / a
+                messagebox.showinfo("Resultado", f"A raiz da equação é: {x:.2f}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 20:
+        label_valor = tk.Label(root, text="Digite o valor da mercadoria:")
+        label_valor.pack()
+        entry_valor = tk.Entry(root)
+        entry_valor.pack()
+
+        def calcular():
+            valor = float(entry_valor.get())
+            entrada = valor / 3
+            prestacao = entrada
+            messagebox.showinfo("Resultado", f"Entrada: R$ {entrada:.2f}\nPrestações: 2x R$ {prestacao:.2f}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 21:
+        label_numero = tk.Label(root, text="Digite um número:")
+        label_numero.pack()
+        entry_numero = tk.Entry(root)
+        entry_numero.pack()
+
+        def calcular():
+            numero = float(entry_numero.get())
+            if numero >= 0:
+                messagebox.showinfo("Resultado", "O número é positivo.")
+            else:
+                messagebox.showinfo("Resultado", "O número é negativo.")
+
+        button = tk.Button(root, text="Verificar", command=calcular)
+        button.pack()
+
+    elif exercicio == 22:
+        label_numero = tk.Label(root, text="Digite um número:")
+        label_numero.pack()
+        entry_numero = tk.Entry(root)
+        entry_numero.pack()
+
+        def calcular():
+            numero = float(entry_numero.get())
+            messagebox.showinfo("Resultado", f"O módulo do número é: {abs(numero)}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 23:
+        label_numero = tk.Label(root, text="Digite um número inteiro:")
+        label_numero.pack()
+        entry_numero = tk.Entry(root)
+        entry_numero.pack()
+
+        def calcular():
+            numero = int(entry_numero.get())
+            if numero % 2 == 0:
+                messagebox.showinfo("Resultado", "O número é par.")
+            else:
+                messagebox.showinfo("Resultado", "O número é ímpar.")
+
+        button = tk.Button(root, text="Verificar", command=calcular)
+        button.pack()
+
+    elif exercicio == 24:
+        label_a = tk.Label(root, text="Digite o primeiro número:")
+        label_a.pack()
+        entry_a = tk.Entry(root)
+        entry_a.pack()
+
+        label_b = tk.Label(root, text="Digite o segundo número:")
+        label_b.pack()
+        entry_b = tk.Entry(root)
+        entry_b.pack()
+
+        label_c = tk.Label(root, text="Digite o terceiro número:")
+        label_c.pack()
+        entry_c = tk.Entry(root)
+        entry_c.pack()
+
+        def calcular():
+            a = float(entry_a.get())
+            b = float(entry_b.get())
+            c = float(entry_c.get())
+            maior = max(a, b, c)
+            messagebox.showinfo("Resultado", f"O maior número é: {maior}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 25:
+        label_mes = tk.Label(root, text="Digite o número do mês (1 a 12):")
+        label_mes.pack()
+        entry_mes = tk.Entry(root)
+        entry_mes.pack()
+
+        def calcular():
+            mes = int(entry_mes.get())
+            if mes in [1, 3, 5, 7, 8, 10, 12]:
+                messagebox.showinfo("Resultado", "O mês tem 31 dias.")
+            elif mes in [4, 6, 9, 11]:
+                messagebox.showinfo("Resultado", "O mês tem 30 dias.")
+            else:
+                messagebox.showinfo("Resultado", "O mês tem 28 dias (ou 29, se for bissexto).")
+
+        button = tk.Button(root, text="Verificar", command=calcular)
+        button.pack()
+
+    elif exercicio == 26:
+        label_a = tk.Label(root, text="Digite o primeiro número:")
+        label_a.pack()
+        entry_a = tk.Entry(root)
+        entry_a.pack()
+
+        label_b = tk.Label(root, text="Digite o segundo número:")
+        label_b.pack()
+        entry_b = tk.Entry(root)
+        entry_b.pack()
+
+        label_c = tk.Label(root, text="Digite o terceiro número:")
+        label_c.pack()
+        entry_c = tk.Entry(root)
+        entry_c.pack()
+
+        def calcular():
+            a = float(entry_a.get())
+            b = float(entry_b.get())
+            c = float(entry_c.get())
+            maiores = sorted([a, b, c], reverse=True)[:2]
+            messagebox.showinfo("Resultado", f"A soma dos dois maiores números é: {sum(maiores)}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 27:
+        label_a = tk.Label(root, text="Digite o primeiro número:")
+        label_a.pack()
+        entry_a = tk.Entry(root)
+        entry_a.pack()
+
+        label_b = tk.Label(root, text="Digite o segundo número:")
+        label_b.pack()
+        entry_b = tk.Entry(root)
+        entry_b.pack()
+
+        label_c = tk.Label(root, text="Digite o terceiro número:")
+        label_c.pack()
+        entry_c = tk.Entry(root)
+        entry_c.pack()
+
+        def calcular():
+            a = float(entry_a.get())
+            b = float(entry_b.get())
+            c = float(entry_c.get())
+            maior = max(a, b, c)
+            if maior == a:
+                media = (a * 5 + b * 2.5 + c * 2.5) / 10
+            elif maior == b:
+                media = (b * 5 + a * 2.5 + c * 2.5) / 10
+            else:
+                media = (c * 5 + a * 2.5 + b * 2.5) / 10
+            messagebox.showinfo("Resultado", f"Média ponderada: {media:.2f}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 28:
+        label_letra = tk.Label(root, text="Digite uma letra:")
+        label_letra.pack()
+        entry_letra = tk.Entry(root)
+        entry_letra.pack()
+
+        def calcular():
+            letra = entry_letra.get().lower()
+            if letra in ['a', 'e', 'i', 'o', 'u']:
+                messagebox.showinfo("Resultado", "A letra é uma vogal.")
+            else:
+                messagebox.showinfo("Resultado", "A letra é uma consoante.")
+
+        button = tk.Button(root, text="Verificar", command=calcular)
+        button.pack()
+
+    elif exercicio == 29:
+        label_salario = tk.Label(root, text="Digite o salário:")
+        label_salario.pack()
+        entry_salario = tk.Entry(root)
+        entry_salario.pack()
+
+        def calcular():
+            salario = float(entry_salario.get())
+            desconto = min(salario * 0.11, 334.29)
+            messagebox.showinfo("Resultado", f"Desconto previdenciário: R$ {desconto:.2f}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 30:
+        label_litros = tk.Label(root, text="Digite o número de litros vendidos:")
+        label_litros.pack()
+        entry_litros = tk.Entry(root)
+        entry_litros.pack()
+
+        label_tipo = tk.Label(root, text="Digite o tipo de combustível (A para Álcool, G para Gasolina):")
+        label_tipo.pack()
+        entry_tipo = tk.Entry(root)
+        entry_tipo.pack()
+
+        def calcular():
+            litros = float(entry_litros.get())
+            tipo = entry_tipo.get().upper()
+            if tipo == 'A':
+                if litros <= 25:
+                    preco = litros * 1.90 * 0.98
+                else:
+                    preco = litros * 1.90 * 0.96
+            else:
+                if litros <= 25:
+                    preco = litros * 2.70 * 0.97
+                else:
+                    preco = litros * 2.70 * 0.95
+            messagebox.showinfo("Resultado", f"Valor a ser pago: R$ {preco:.2f}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 31:
+        label_passes_tentados = tk.Label(root, text="Digite o número de passes tentados:")
+        label_passes_tentados.pack()
+        entry_passes_tentados = tk.Entry(root)
+        entry_passes_tentados.pack()
+
+        label_passes_completos = tk.Label(root, text="Digite o número de passes completos:")
+        label_passes_completos.pack()
+        entry_passes_completos = tk.Entry(root)
+        entry_passes_completos.pack()
+
+        label_jardas_passadas = tk.Label(root, text="Digite o número de jardas passadas:")
+        label_jardas_passadas.pack()
+        entry_jardas_passadas = tk.Entry(root)
+        entry_jardas_passadas.pack()
+
+        label_passes_touchdown = tk.Label(root, text="Digite o número de passes para touchdown:")
+        label_passes_touchdown.pack()
+        entry_passes_touchdown = tk.Entry(root)
+        entry_passes_touchdown.pack()
+
+        label_passes_interceptados = tk.Label(root, text="Digite o número de passes interceptados:")
+        label_passes_interceptados.pack()
+        entry_passes_interceptados = tk.Entry(root)
+        entry_passes_interceptados.pack()
+
+        def calcular():
+            passes_tentados = int(entry_passes_tentados.get())
+            passes_completos = int(entry_passes_completos.get())
+            jardas_passadas = int(entry_jardas_passadas.get())
+            passes_touchdown = int(entry_passes_touchdown.get())
+            passes_interceptados = int(entry_passes_interceptados.get())
+
+            a = min(max((passes_completos / passes_tentados - 0.3) / 0.2, 0), 2.375)
+            b = min(max((jardas_passadas / passes_tentados - 3) / 4, 0), 2.375)
+            c = min(max((passes_touchdown / passes_tentados) / 0.05, 0), 2.375)
+            d = min(max((0.095 - passes_interceptados / passes_tentados) / 0.04, 0), 2.375)
+
+            qb_rating = (a + b + c + d) * 100 / 6
+            messagebox.showinfo("Resultado", f"Quarterback Rating: {qb_rating:.2f}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 32:
+        label_caracter = tk.Label(root, text="Digite um caracter:")
+        label_caracter.pack()
+        entry_caracter = tk.Entry(root)
+        entry_caracter.pack()
+
+        def calcular():
+            caracter = entry_caracter.get()
+            if caracter.isalpha():
+                if caracter.lower() in ['a', 'e', 'i', 'o', 'u']:
+                    messagebox.showinfo("Resultado", "O caracter é uma vogal.")
+                else:
+                    messagebox.showinfo("Resultado", "O caracter é uma consoante.")
+            elif caracter.isdigit():
+                messagebox.showinfo("Resultado", "O caracter é um número.")
+            else:
+                messagebox.showinfo("Resultado", "O caracter é um símbolo.")
+
+        button = tk.Button(root, text="Verificar", command=calcular)
+        button.pack()
+
+    elif exercicio == 33:
+        label_x = tk.Label(root, text="Digite a coordenada X:")
+        label_x.pack()
+        entry_x = tk.Entry(root)
+        entry_x.pack()
+
+        label_y = tk.Label(root, text="Digite a coordenada Y:")
+        label_y.pack()
+        entry_y = tk.Entry(root)
+        entry_y.pack()
+
+        def calcular():
+            x = float(entry_x.get())
+            y = float(entry_y.get())
+            if x == 0 and y == 0:
+                messagebox.showinfo("Resultado", "O ponto está na origem.")
+            elif x == 0:
+                messagebox.showinfo("Resultado", "O ponto está sobre o eixo Y.")
+            elif y == 0:
+                messagebox.showinfo("Resultado", "O ponto está sobre o eixo X.")
+            elif x > 0 and y > 0:
+                messagebox.showinfo("Resultado", "O ponto está no quadrante 1.")
+            elif x < 0 and y > 0:
+                messagebox.showinfo("Resultado", "O ponto está no quadrante 2.")
+            elif x < 0 and y < 0:
+                messagebox.showinfo("Resultado", "O ponto está no quadrante 3.")
+            else:
+                messagebox.showinfo("Resultado", "O ponto está no quadrante 4.")
+
+        button = tk.Button(root, text="Verificar", command=calcular)
+        button.pack()
+
+    elif exercicio == 34:
+        label_renda = tk.Label(root, text="Digite a renda mensal:")
+        label_renda.pack()
+        entry_renda = tk.Entry(root)
+        entry_renda.pack()
+
+        label_emprestimo = tk.Label(root, text="Digite o valor do empréstimo:")
+        label_emprestimo.pack()
+        entry_emprestimo = tk.Entry(root)
+        entry_emprestimo.pack()
+
+        label_prestacoes = tk.Label(root, text="Digite o número de prestações:")
+        label_prestacoes.pack()
+        entry_prestacoes = tk.Entry(root)
+        entry_prestacoes.pack()
+
+        def calcular():
+            renda = float(entry_renda.get())
+            emprestimo = float(entry_emprestimo.get())
+            prestacoes = int(entry_prestacoes.get())
+            valor_prestacao = emprestimo / prestacoes
+            if emprestimo <= 10 * renda and valor_prestacao <= 0.3 * renda:
+                messagebox.showinfo("Resultado", "Empréstimo concedido.")
+            else:
+                messagebox.showinfo("Resultado", "Empréstimo não concedido.")
+
+        button = tk.Button(root, text="Verificar", command=calcular)
+        button.pack()
+
+    elif exercicio == 35:
+        label_dia = tk.Label(root, text="Digite um número de 1 a 7:")
+        label_dia.pack()
+        entry_dia = tk.Entry(root)
+        entry_dia.pack()
+
+        def calcular():
+            dia = int(entry_dia.get())
+            dias_semana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+            if 1 <= dia <= 7:
+                messagebox.showinfo("Resultado", f"O dia correspondente é: {dias_semana[dia - 1]}")
+            else:
+                messagebox.showerror("Erro", "Número inválido.")
+
+        button = tk.Button(root, text="Verificar", command=calcular)
+        button.pack()
+
+    elif exercicio == 36:
+        notas = []
+        for i in range(5):
+            label_nota = tk.Label(root, text=f"Digite a nota do exame {i + 1}:")
+            label_nota.pack()
+            entry_nota = tk.Entry(root)
+            entry_nota.pack()
+            notas.append(entry_nota)
+
+        def calcular():
+            notas_valores = [float(entry.get()) for entry in notas]
+            media = sum(notas_valores) / 5
+            if all(nota >= 70 for nota in notas_valores):
+                messagebox.showinfo("Resultado", "Classificação: A")
+            elif notas_valores[0] >= 70 and notas_valores[1] >= 70 and notas_valores[3] >= 70 and (notas_valores[2] < 70 or notas_valores[4] < 70):
+                messagebox.showinfo("Resultado", "Classificação: B")
+            elif notas_valores[0] >= 70 and notas_valores[1] >= 70 and (notas_valores[2] >= 70 or notas_valores[3] >= 70) and notas_valores[4] < 70:
+                messagebox.showinfo("Resultado", "Classificação: C")
+            else:
+                messagebox.showinfo("Resultado", "Reprovado.")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 37:
+        label_tipo = tk.Label(root, text="Digite o tipo de pulverização (1 a 4):")
+        label_tipo.pack()
+        entry_tipo = tk.Entry(root)
+        entry_tipo.pack()
+
+        label_area = tk.Label(root, text="Digite a área a ser pulverizada (em acres):")
+        label_area.pack()
+        entry_area = tk.Entry(root)
+        entry_area.pack()
+
+        def calcular():
+            tipo = int(entry_tipo.get())
+            area = float(entry_area.get())
+            if tipo == 1:
+                custo = 50 * area
+            elif tipo == 2:
+                custo = 100 * area
+            elif tipo == 3:
+                custo = 150 * area
+            else:
+                custo = 250 * area
+            if area > 1000:
+                custo *= 0.95
+            if custo > 750:
+                custo -= (custo - 750) * 0.1
+            messagebox.showinfo("Resultado", f"Custo total: R$ {costo:.2f}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 38:
+        label_ano = tk.Label(root, text="Digite o ano:")
+        label_ano.pack()
+        entry_ano = tk.Entry(root)
+        entry_ano.pack()
+
+        def calcular():
+            ano = int(entry_ano.get())
+            if (ano % 4 == 0 and ano % 100 != 0) or ano % 400 == 0:
+                messagebox.showinfo("Resultado", "O ano é bissexto.")
+            else:
+                messagebox.showinfo("Resultado", "O ano não é bissexto.")
+
+        button = tk.Button(root, text="Verificar", command=calcular)
+        button.pack()
+
+    elif exercicio == 39:
+        label_agencia = tk.Label(root, text="Digite os 4 primeiros dígitos da agência:")
+        label_agencia.pack()
+        entry_agencia = tk.Entry(root)
+        entry_agencia.pack()
+
+        def calcular():
+            agencia = entry_agencia.get()
+            digitos = [int(d) for d in agencia]
+            soma = digitos[0] * 5 + digitos[1] * 4 + digitos[2] * 3 + digitos[3] * 2
+            dv = 11 - (soma % 11)
+            if dv == 10:
+                dv = 'X'
+            messagebox.showinfo("Resultado", f"Agência completa: {agencia}-{dv}")
+
+        button = tk.Button(root, text="Calcular", command=calcular)
+        button.pack()
+
+    elif exercicio == 40:
+        label_numero = tk.Label(root, text="Digite um número de 1 a 100:")
+        label_numero.pack()
+        entry_numero = tk.Entry(root)
+        entry_numero.pack()
+
+        def calcular():
+            numero = int(entry_numero.get())
+            extenso = ["Um", "Dois", "Três", "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove", "Dez"]
+            if 1 <= numero <= 10:
+                messagebox.showinfo("Resultado", extenso[numero - 1])
+            else:
+                messagebox.showerror("Erro", "Número fora do intervalo.")
+
+        button = tk.Button(root, text="Verificar", command=calcular)
+        button.pack()
+
+    elif exercicio == 41:
+        def mostrar_numeros():
+            resultado = "\n".join(str(i) for i in range(1, 101))
+            messagebox.showinfo("Resultado", resultado)
+
+        button = tk.Button(root, text="Mostrar Números", command=mostrar_numeros)
+        button.pack()
+
+    elif exercicio == 42:
+        def mostrar_numeros():
+            resultado = "\n".join(str(i) for i in range(100, 0, -1))
+            messagebox.showinfo("Resultado", resultado)
+
+        button = tk.Button(root, text="Mostrar Números", command=mostrar_numeros)
+        button.pack()
+
+    elif exercicio == 43:
+        def mostrar_numeros_pares():
+            resultado = "\n".join(str(i) for i in range(1, 101) if i % 2 == 0)
+            messagebox.showinfo("Resultado", resultado)
+
+        button = tk.Button(root, text="Mostrar Números Pares", command=mostrar_numeros_pares)
+        button.pack()
+
+    elif exercicio == 44:
+        def calcular_soma():
+            soma = sum(range(1, 101))
+            messagebox.showinfo("Resultado", f"Soma total: {soma}")
+
+        button = tk.Button(root, text="Calcular Soma", command=calcular_soma)
+        button.pack()
+
+    elif exercicio == 45:
+        numeros = []
+        for i in range(5):
+            label_numero = tk.Label(root, text=f"Digite o {i + 1}º número:")
+            label_numero.pack()
+            entry_numero = tk.Entry(root)
+            entry_numero.pack()
+            numeros.append(entry_numero)
+
+        def calcular_media():
+            valores = [float(entry.get()) for entry in numeros]
+            media = sum(valores) / 5
+            messagebox.showinfo("Resultado", f"Média: {media:.2f}")
+
+        button = tk.Button(root, text="Calcular Média", command=calcular_media)
+        button.pack()
+
+    elif exercicio == 46:
+        label_a = tk.Label(root, text="Digite o valor de A:")
+        label_a.pack()
+        entry_a = tk.Entry(root)
+        entry_a.pack()
+
+        label_b = tk.Label(root, text="Digite o valor de B:")
+        label_b.pack()
+        entry_b = tk.Entry(root)
+        entry_b.pack()
+
+        def calcular_quociente():
+            a = int(entry_a.get())
+            b = int(entry_b.get())
+            quociente = 0
+            while a >= b:
+                a -= b
+                quociente += 1
+            messagebox.showinfo("Resultado", f"Quociente: {quociente}")
+
+        button = tk.Button(root, text="Calcular Quociente", command=calcular_quociente)
+        button.pack()
+
+    elif exercicio == 47:
+        label_a = tk.Label(root, text="Digite o valor de A:")
+        label_a.pack()
+        entry_a = tk.Entry(root)
+        entry_a.pack()
+
+        label_b = tk.Label(root, text="Digite o valor de B:")
+        label_b.pack()
+        entry_b = tk.Entry(root)
+        entry_b.pack()
+
+        def calcular_resto():
+            a = int(entry_a.get())
+            b = int(entry_b.get())
+            while a >= b:
+                a -= b
+            messagebox.showinfo("Resultado", f"Resto: {a}")
+
+        button = tk.Button(root, text="Calcular Resto", command=calcular_resto)
+        button.pack()
+
+    elif exercicio == 48:
+        label_n = tk.Label(root, text="Digite um número:")
+        label_n.pack()
+        entry_n = tk.Entry(root)
+        entry_n.pack()
+
+        def verificar_primo():
+            n = int(entry_n.get())
+            primo = True
+            for i in range(2, int(n ** 0.5) + 1):
+                if n % i == 0:
+                    primo = False
+                    break
+            messagebox.showinfo("Resultado", "Primo" if primo else "Não primo")
+
+        button = tk.Button(root, text="Verificar Primo", command=verificar_primo)
+        button.pack()
+
+    elif exercicio == 49:
+        label_n = tk.Label(root, text="Digite um número:")
+        label_n.pack()
+        entry_n = tk.Entry(root)
+        entry_n.pack()
+
+        def verificar_primo():
+            n = int(entry_n.get())
+            primo = True
+            for i in range(2, int(n ** 0.5) + 1):
+                if n % i == 0:
+                    primo = False
+                    break
+            messagebox.showinfo("Resultado", "Primo" if primo else "Não primo")
+
+        button = tk.Button(root, text="Verificar Primo", command=verificar_primo)
+        button.pack()
+
+    elif exercicio == 50:
+        label_soma = tk.Label(root, text="Digite o valor da soma desejada:")
+        label_soma.pack()
+        entry_soma = tk.Entry(root)
+        entry_soma.pack()
+
+        def mostrar_combinacoes():
+            soma = int(entry_soma.get())
+            resultado = ""
+            for i in range(1, 7):
+                for j in range(1, 7):
+                    if i + j == soma:
+                        resultado += f"{i} {j}\n"
+            messagebox.showinfo("Resultado", resultado)
+
+        button = tk.Button(root, text="Mostrar Combinações", command=mostrar_combinacoes)
+        button.pack()
+
+    elif exercicio == 51:
+        label_n = tk.Label(root, text="Digite o número de termos da série:")
+        label_n.pack()
+        entry_n = tk.Entry(root)
+        entry_n.pack()
+
+        def mostrar_fibonacci():
+            n = int(entry_n.get())
+            a, b = 1, 1
+            resultado = ""
+            for _ in range(n):
+                resultado += f"{a}\n"
+                a, b = b, a + b
+            messagebox.showinfo("Resultado", resultado)
+
+        button = tk.Button(root, text="Mostrar Fibonacci", command=mostrar_fibonacci)
+        button.pack()
+
+    elif exercicio == 52:
+        label_a1 = tk.Label(root, text="Digite o primeiro termo:")
+        label_a1.pack()
+        entry_a1 = tk.Entry(root)
+        entry_a1.pack()
+
+        label_a2 = tk.Label(root, text="Digite o segundo termo:")
+        label_a2.pack()
+        entry_a2 = tk.Entry(root)
+        entry_a2.pack()
+
+        label_n = tk.Label(root, text="Digite o número de termos:")
+        label_n.pack()
+        entry_n = tk.Entry(root)
+        entry_n.pack()
+
+        def mostrar_fetuccine():
+            a1 = int(entry_a1.get())
+            a2 = int(entry_a2.get())
+            n = int(entry_n.get())
+            resultado = f"{a1}\n{a2}\n"
+            for i in range(3, n + 1):
+                if i % 2 == 1:
+                    a3 = a2 + a1
+                else:
+                    a3 = a2 - a1
+                resultado += f"{a3}\n"
+                a1, a2 = a2, a3
+            messagebox.showinfo("Resultado", resultado)
+
+        button = tk.Button(root, text="Mostrar Fetuccine", command=mostrar_fetuccine)
+        button.pack()
+
+    elif exercicio == 53:
+        def calcular_anos():
+            pop_a = 5000000
+            pop_b = 7000000
+            taxa_a = 0.03
+            taxa_b = 0.02
+            anos = 0
+            while pop_a <= pop_b:
+                pop_a *= (1 + taxa_a)
+                pop_b *= (1 + taxa_b)
+                anos += 1
+            messagebox.showinfo("Resultado", f"Anos necessários: {anos}")
+
+        button = tk.Button(root, text="Calcular Anos", command=calcular_anos)
+        button.pack()
+
+    elif exercicio == 54:
+        label_n = tk.Label(root, text="Digite um número:")
+        label_n.pack()
+        entry_n = tk.Entry(root)
+        entry_n.pack()
+
+        def verificar_triangular():
+            n = int(entry_n.get())
+            i = 1
+            while i * (i + 1) * (i + 2) < n:
+                i += 1
+            if i * (i + 1) * (i + 2) == n:
+                messagebox.showinfo("Resultado", "O número é triangular.")
+            else:
+                messagebox.showinfo("Resultado", "O número não é triangular.")
+
+        button = tk.Button(root, text="Verificar Triangular", command=verificar_triangular)
+        button.pack()
+
+    elif exercicio == 55:
+        label_a = tk.Label(root, text="Digite o primeiro número:")
+        label_a.pack()
+        entry_a = tk.Entry(root)
+        entry_a.pack()
+
+        label_b = tk.Label(root, text="Digite o segundo número:")
+        label_b.pack()
+        entry_b = tk.Entry(root)
+        entry_b.pack()
+
+        def verificar_amigos():
+            a = int(entry_a.get())
+            b = int(entry_b.get())
+            def soma_divisores(n):
+                soma = 0
+                for i in range(1, n):
+                    if n % i == 0:
+                        soma += i
+                return soma
+            if soma_divisores(a) == b and soma_divisores(b) == a:
+                messagebox.showinfo("Resultado", "Os números são amigos.")
+            else:
+                messagebox.showinfo("Resultado", "Os números não são amigos.")
+
+        button = tk.Button(root, text="Verificar Amigos", command=verificar_amigos)
+        button.pack()
+
+    elif exercicio == 56:
+        label_n = tk.Label(root, text="Digite um número:")
+        label_n.pack()
+        entry_n = tk.Entry(root)
+        entry_n.pack()
+
+        def verificar_perfeito():
+            n = int(entry_n.get())
+            soma = 0
+            for i in range(1, n):
+                if n % i == 0:
+                    soma += i
+            if soma == n:
+                messagebox.showinfo("Resultado", "O número é perfeito.")
+            else:
+                messagebox.showinfo("Resultado", "O número não é perfeito.")
+
+        button = tk.Button(root, text="Verificar Perfeito", command=verificar_perfeito)
+        button.pack()
+
+    elif exercicio == 57:
+        label_n = tk.Label(root, text="Digite o número de termos:")
+        label_n.pack()
+        entry_n = tk.Entry(root)
+        entry_n.pack()
+
+        def calcular_somatorio():
+            n = int(entry_n.get())
+            s = 0
+            for i in range(1, n + 1):
+                s += 1 / (i ** 2)
+            messagebox.showinfo("Resultado", f"Somatório: {s:.2f}")
+
+        button = tk.Button(root, text="Calcular Somatório", command=calcular_somatorio)
+        button.pack()
+
+    elif exercicio == 58:
+        label_n = tk.Label(root, text="Digite o número de termos:")
+        label_n.pack()
+        entry_n = tk.Entry(root)
+        entry_n.pack()
+
+        def calcular_pi():
+            n = int(entry_n.get())
+            s = 0
+            for i in range(n):
+                s += (-1) ** i / (2 * i + 1)
+            pi = 4 * s
+            messagebox.showinfo("Resultado", f"Valor de Pi: {pi:.5f}")
+
+        button = tk.Button(root, text="Calcular Pi", command=calcular_pi)
+        button.pack()
+
+    elif exercicio == 59:
+        label_n = tk.Label(root, text="Digite o número de termos:")
+        label_n.pack()
+        entry_n = tk.Entry(root)
+        entry_n.pack()
+
+        def calcular_euler():
+            n = int(entry_n.get())
+            e = 0
+            for i in range(n):
+                e += 1 / (i + 1)
+            messagebox.showinfo("Resultado", f"Valor de Euler: {e:.5f}")
+
+        button = tk.Button(root, text="Calcular Euler", command=calcular_euler)
+        button.pack()
+
+    elif exercicio == 60:
+        def mostrar_goldbach():
+            def eh_primo(n):
+                if n < 2:
+                    return False
+                for i in range(2, int(n ** 0.5) + 1):
+                    if n % i == 0:
+                        return False
+                return True
+
+            resultado = ""
+            for num in range(500, 1001, 2):
+                for i in range(2, num // 2 + 1):
+                    if eh_primo(i) and eh_primo(num - i):
+                        resultado += f"{num} = {i} + {num - i}\n"
+                        break
+            messagebox.showinfo("Resultado", resultado)
+
+        button = tk.Button(root, text="Mostrar Goldbach", command=mostrar_goldbach)
+        button.pack()
+
+    elif exercicio == 61:
+        def mostrar_array():
+            array = [0] * 20
+            resultado = "\n".join(f"Posição {i}: {array[i]}" for i in range(20))
+            messagebox.showinfo("Resultado", resultado)
+
+        button = tk.Button(root, text="Mostrar Array", command=mostrar_array)
+        button.pack()
+
+    elif exercicio == 62:
+        numeros = []
+        for i in range(10):
+            label_numero = tk.Label(root, text=f"Digite o {i + 1}º número:")
+            label_numero.pack()
+            entry_numero = tk.Entry(root)
+            entry_numero.pack()
+            numeros.append(entry_numero)
+
+        def contar_pares():
+            valores = [int(entry.get()) for entry in numeros]
+            pares = sum(1 for x in valores if x % 2 == 0)
+            messagebox.showinfo("Resultado", f"Números pares: {pares}")
+
+        button = tk.Button(root, text="Contar Pares", command=contar_pares)
+        button.pack()
+
+    elif exercicio == 63:
+        vetor1 = []
+        vetor2 = []
+        for i in range(10):
+            label_vetor1 = tk.Label(root, text=f"Digite o {i + 1}º número do primeiro vetor:")
+            label_vetor1.pack()
+            entry_vetor1 = tk.Entry(root)
+            entry_vetor1.pack()
+            vetor1.append(entry_vetor1)
+
+            label_vetor2 = tk.Label(root, text=f"Digite o {i + 1}º número do segundo vetor:")
+            label_vetor2.pack()
+            entry_vetor2 = tk.Entry(root)
+            entry_vetor2.pack()
+            vetor2.append(entry_vetor2)
+
+        def calcular_soma():
+            valores1 = [float(entry.get()) for entry in vetor1]
+            valores2 = [float(entry.get()) for entry in vetor2]
+            vetor_soma = [valores1[i] + valores2[i] for i in range(10)]
+            messagebox.showinfo("Resultado", f"Vetor soma: {vetor_soma}")
+
+        button = tk.Button(root, text="Calcular Soma", command=calcular_soma)
+        button.pack()
+
+    elif exercicio == 64:
+        numeros = []
+        for i in range(20):
+            label_numero = tk.Label(root, text=f"Digite o {i + 1}º número:")
+            label_numero.pack()
+            entry_numero = tk.Entry(root)
+            entry_numero.pack()
+            numeros.append(entry_numero)
+
+        def encontrar_min_max():
+            valores = [int(entry.get()) for entry in numeros]
+            messagebox.showinfo("Resultado", f"Menor valor: {min(valores)}\nMaior valor: {max(valores)}")
+
+        button = tk.Button(root, text="Encontrar Min e Max", command=encontrar_min_max)
+        button.pack()
+
+    elif exercicio == 65:
+        numeros = []
+        for i in range(20):
+            label_numero = tk.Label(root, text=f"Digite o {i + 1}º número:")
+            label_numero.pack()
+            entry_numero = tk.Entry(root)
+            entry_numero.pack()
+            numeros.append(entry_numero)
+
+        def encontrar_min_max_posicoes():
+            valores = [int(entry.get()) for entry in numeros]
+            min_val = min(valores)
+            max_val = max(valores)
+            min_index = valores.index(min_val)
+            max_index = valores.index(max_val)
+            messagebox.showinfo("Resultado", f"Menor valor: {min_val} (Posição {min_index})\nMaior valor: {max_val} (Posição {max_index})")
+
+        button = tk.Button(root, text="Encontrar Min e Max com Posições", command=encontrar_min_max_posicoes)
+        button.pack()
+
+    elif exercicio == 66:
+        vetor1 = []
+        for i in range(10):
+            label_numero = tk.Label(root, text=f"Digite o {i + 1}º número:")
+            label_numero.pack()
+            entry_numero = tk.Entry(root)
+            entry_numero.pack()
+            vetor1.append(entry_numero)
+
+        def copiar_vetor():
+            valores = [int(entry.get()) for entry in vetor1]
+            vetor2 = valores.copy()
+            messagebox.showinfo("Resultado", f"Vetor copiado: {vetor2}")
+
+        button = tk.Button(root, text="Copiar Vetor", command=copiar_vetor)
+        button.pack()
+
+    elif exercicio == 67:
+        vetor1 = []
+        vetor2 = []
+        for i in range(10):
+            label_vetor1 = tk.Label(root, text=f"Digite o {i + 1}º número do primeiro vetor:")
+            label_vetor1.pack()
+            entry_vetor1 = tk.Entry(root)
+            entry_vetor1.pack()
+            vetor1.append(entry_vetor1)
+
+            label_vetor2 = tk.Label(root, text=f"Digite o {i + 1}º número do segundo vetor:")
+            label_vetor2.pack()
+            entry_vetor2 = tk.Entry(root)
+            entry_vetor2.pack()
+            vetor2.append(entry_vetor2)
+
+        def encontrar_maiores():
+            valores1 = [int(entry.get()) for entry in vetor1]
+            valores2 = [int(entry.get()) for entry in vetor2]
+            vetor3 = [max(valores1[i], valores2[i]) for i in range(10)]
+            messagebox.showinfo("Resultado", f"Vetor resultante: {vetor3}")
+
+        button = tk.Button(root, text="Encontrar Maiores", command=encontrar_maiores)
+        button.pack()
+
+    elif exercicio == 68:
+        indices = []
+        for i in range(30):
+            label_indice = tk.Label(root, text=f"Digite o índice pluviométrico do dia {i + 1}:")
+            label_indice.pack()
+            entry_indice = tk.Entry(root)
+            entry_indice.pack()
+            indices.append(entry_indice)
+
+        def calcular_estatisticas():
+            valores = [float(entry.get()) for entry in indices]
+            mais_choveu = valores.index(max(valores)) + 1
+            menos_choveu = valores.index(min(valores)) + 1
+            media_quinzena1 = sum(valores[:15]) / 15
+            media_quinzena2 = sum(valores[15:]) / 15
+            messagebox.showinfo("Resultado", f"Dia que mais choveu: {mais_choveu}\nDia que menos choveu: {menos_choveu}\nMédia da primeira quinzena: {media_quinzena1:.2f}\nMédia da segunda quinzena: {media_quinzena2:.2f}")
+
+        button = tk.Button(root, text="Calcular Estatísticas", command=calcular_estatisticas)
+        button.pack()
+
+    elif exercicio == 69:
+        numeros = []
+        for i in range(15):
+            label_numero = tk.Label(root, text=f"Digite o {i + 1}º número:")
+            label_numero.pack()
+            entry_numero = tk.Entry(root)
+            entry_numero.pack()
+            numeros.append(entry_numero)
+
+        label_valor = tk.Label(root, text="Digite o valor a ser contado:")
+        label_valor.pack()
+        entry_valor = tk.Entry(root)
+        entry_valor.pack()
+
+        def contar_ocorrencias():
+            valores = [int(entry.get()) for entry in numeros]
+            valor = int(entry_valor.get())
+            messagebox.showinfo("Resultado", f"O valor {valor} aparece {valores.count(valor)} vezes.")
+
+        button = tk.Button(root, text="Contar Ocorrências", command=contar_ocorrencias)
+        button.pack()
+
+    elif exercicio == 70:
+        array = []
+        def adicionar_valor():
+            valor = entry_valor.get()
+            if valor == '':
+                return
+            array.append(int(valor))
+            entry_valor.delete(0, tk.END)
+            label_array.config(text=f"Array: {array}")
+
+        label_valor = tk.Label(root, text="Digite um número (ou pressione Enter para parar):")
+        label_valor.pack()
+        entry_valor = tk.Entry(root)
+        entry_valor.pack()
+        entry_valor.bind("<Return>", lambda event: adicionar_valor())
+
+        label_array = tk.Label(root, text="Array: []")
+        label_array.pack()
+
+        def mostrar_array():
+            messagebox.showinfo("Resultado", f"Array final: {array}")
+
+        button = tk.Button(root, text="Mostrar Array", command=mostrar_array)
+        button.pack()
+
+    elif exercicio == 71:
+        vetor = []
+        for i in range(10):
+            label_numero = tk.Label(root, text=f"Digite o {i + 1}º número:")
+            label_numero.pack()
+            entry_numero = tk.Entry(root)
+            entry_numero.pack()
+            vetor.append(entry_numero)
+
+        label_valor = tk.Label(root, text="Digite o valor a ser buscado:")
+        label_valor.pack()
+        entry_valor = tk.Entry(root)
+        entry_valor.pack()
+
+        def buscar_sequencial():
+            valores = [int(entry.get()) for entry in vetor]
+            valor = int(entry_valor.get())
+            try:
+                posicao = valores.index(valor)
+                messagebox.showinfo("Resultado", f"O valor {valor} está na posição {posicao}.")
+            except ValueError:
+                messagebox.showinfo("Resultado", "-1")
+
+        button = tk.Button(root, text="Buscar Sequencial", command=buscar_sequencial)
+        button.pack()
+
+    elif exercicio == 72:
+        vetor = []
+        for i in range(10):
+            label_numero = tk.Label(root, text=f"Digite o {i + 1}º número (em ordem crescente):")
+            label_numero.pack()
+            entry_numero = tk.Entry(root)
+            entry_numero.pack()
+            vetor.append(entry_numero)
+
+        label_valor = tk.Label(root, text="Digite o valor a ser buscado:")
+        label_valor.pack()
+        entry_valor = tk.Entry(root)
+        entry_valor.pack()
+
+        def buscar_binaria():
+            valores = [int(entry.get()) for entry in vetor]
+            valor = int(entry_valor.get())
+            try:
+                posicao = valores.index(valor)
+                messagebox.showinfo("Resultado", f"O valor {valor} está na posição {posicao}.")
+            except ValueError:
+                messagebox.showinfo("Resultado", "-1")
+
+        button = tk.Button(root, text="Buscar Binária", command=buscar_binaria)
+        button.pack()
+
+    elif exercicio == 73:
+        numeros = []
+        for i in range(20):
+            label_numero = tk.Label(root, text=f"Digite o {i + 1}º número:")
+            label_numero.pack()
+            entry_numero = tk.Entry(root)
+            entry_numero.pack()
+            numeros.append(entry_numero)
+
+        def calcular_estatisticas():
+            valores = [int(entry.get()) for entry in numeros]
+            moda = max(set(valores), key=valores.count)
+            mediana = sorted(valores)[10]
+            media = sum(valores) / 20
+            messagebox.showinfo("Resultado", f"Moda: {moda}\nMediana: {mediana}\nMédia: {media:.2f}")
+
+        button = tk.Button(root, text="Calcular Estatísticas", command=calcular_estatisticas)
+        button.pack()
+
+    elif exercicio == 74:
+        vetor = []
+        def inserir_final():
+            valor = entry_valor.get()
+            if valor == '':
+                return
+            vetor.append(int(valor))
+            entry_valor.delete(0, tk.END)
+            label_vetor.config(text=f"Vetor: {vetor}")
+
+        def inserir_posicao():
+            valor = entry_valor.get()
+            posicao = entry_posicao.get()
+            if valor == '' or posicao == '':
+                return
+            vetor.insert(int(posicao), int(valor))
+            entry_valor.delete(0, tk.END)
+            entry_posicao.delete(0, tk.END)
+            label_vetor.config(text=f"Vetor: {vetor}")
+
+        def remover_posicao():
+            posicao = entry_posicao.get()
+            if posicao == '':
+                return
+            vetor.pop(int(posicao))
+            entry_posicao.delete(0, tk.END)
+            label_vetor.config(text=f"Vetor: {vetor}")
+
+        def remover_valor():
+            valor = entry_valor.get()
+            if valor == '':
+                return
+            while int(valor) in vetor:
+                vetor.remove(int(valor))
+            entry_valor.delete(0, tk.END)
+            label_vetor.config(text=f"Vetor: {vetor}")
+
+        def sem_duplicidades():
+            vetor_sem_duplicidades = list(set(vetor))
+            messagebox.showinfo("Resultado", f"Vetor sem duplicidades: {vetor_sem_duplicidades}")
+
+        label_valor = tk.Label(root, text="Digite um valor:")
+        label_valor.pack()
+        entry_valor = tk.Entry(root)
+        entry_valor.pack()
+
+        label_posicao = tk.Label(root, text="Digite a posição:")
+        label_posicao.pack()
+        entry_posicao = tk.Entry(root)
+        entry_posicao.pack()
+
+        button_inserir_final = tk.Button(root, text="Inserir no Final", command=inserir_final)
+        button_inserir_final.pack()
+
+        button_inserir_posicao = tk.Button(root, text="Inserir na Posição", command=inserir_posicao)
+        button_inserir_posicao.pack()
+
+        button_remover_posicao = tk.Button(root, text="Remover da Posição", command=remover_posicao)
+        button_remover_posicao.pack()
+
+        button_remover_valor = tk.Button(root, text="Remover Valor", command=remover_valor)
+        button_remover_valor.pack()
+
+        button_sem_duplicidades = tk.Button(root, text="Sem Duplicidades", command=sem_duplicidades)
+        button_sem_duplicidades.pack()
+
+        label_vetor = tk.Label(root, text="Vetor: []")
+        label_vetor.pack()
+
+    elif exercicio == 75:
+        numeros = []
+        for i in range(15):
+            label_numero = tk.Label(root, text=f"Digite o {i + 1}º número:")
+            label_numero.pack()
+            entry_numero = tk.Entry(root)
+            entry_numero.pack()
+            numeros.append(entry_numero)
+
+        def ordenar_bubble_sort():
+            valores = [int(entry.get()) for entry in numeros]
+            for i in range(len(valores)):
+                for j in range(len(valores) - 1):
+                    if valores[j] > valores[j + 1]:
+                        valores[j], valores[j + 1] = valores[j + 1], valores[j]
+            messagebox.showinfo("Resultado", f"Array ordenado: {valores}")
+
+        button = tk.Button(root, text="Ordenar Bubble Sort", command=ordenar_bubble_sort)
+        button.pack()
+
+    elif exercicio == 76:
+        label_string = tk.Label(root, text="Digite uma string:")
+        label_string.pack()
+        entry_string = tk.Entry(root)
+        entry_string.pack()
+
+        def contar_vogais():
+            string = entry_string.get()
+            vogais = sum(1 for char in string if char.lower() in ['a', 'e', 'i', 'o', 'u'])
+            messagebox.showinfo("Resultado", f"Número de vogais: {vogais}")
+
+        button = tk.Button(root, text="Contar Vogais", command=contar_vogais)
+        button.pack()
+
+    elif exercicio == 77:
+        label_string = tk.Label(root, text="Digite uma string:")
+        label_string.pack()
+        entry_string = tk.Entry(root)
+        entry_string.pack()
+
+        def inverter_string():
+            string = entry_string.get()
+            invertida = string[::-1]
+            messagebox.showinfo("Resultado", f"String invertida: {invertida}")
+
+        button = tk.Button(root, text="Inverter String", command=inverter_string)
+        button.pack()
+
+    elif exercicio == 78:
+        label_string = tk.Label(root, text="Digite uma string:")
+        label_string.pack()
+        entry_string = tk.Entry(root)
+        entry_string.pack()
+
+        label_caracter = tk.Label(root, text="Digite o caracter a ser contado:")
+        label_caracter.pack()
+        entry_caracter = tk.Entry(root)
+        entry_caracter.pack()
+
+        def contar_ocorrencias():
+            string = entry_string.get()
+            caracter = entry_caracter.get()
+            messagebox.showinfo("Resultado", f"O caracter '{caracter}' aparece {string.count(caracter)} vezes.")
+
+        button = tk.Button(root, text="Contar Ocorrências", command=contar_ocorrencias)
+        button.pack()
+
+    elif exercicio == 79:
+        label_string = tk.Label(root, text="Digite uma string:")
+        label_string.pack()
+        entry_string = tk.Entry(root)
+        entry_string.pack()
+
+        label_inicio = tk.Label(root, text="Digite a posição inicial:")
+        label_inicio.pack()
+        entry_inicio = tk.Entry(root)
+        entry_inicio.pack()
+
+        label_fim = tk.Label(root, text="Digite a posição final:")
+        label_fim.pack()
+        entry_fim = tk.Entry(root)
+        entry_fim.pack()
+
+        def mostrar_substring():
+            string = entry_string.get()
+            inicio = int(entry_inicio.get())
+            fim = int(entry_fim.get())
+            messagebox.showinfo("Resultado", f"Substring: {string[inicio:fim]}")
+
+        button = tk.Button(root, text="Mostrar Substring", command=mostrar_substring)
+        button.pack()
+
+    elif exercicio == 80:
+        label_string1 = tk.Label(root, text="Digite a primeira string:")
+        label_string1.pack()
+        entry_string1 = tk.Entry(root)
+        entry_string1.pack()
+
+        label_string2 = tk.Label(root, text="Digite a segunda string:")
+        label_string2.pack()
+        entry_string2 = tk.Entry(root)
+        entry_string2.pack()
+
+        def verificar_substring():
+            string1 = entry_string1.get()
+            string2 = entry_string2.get()
+            messagebox.showinfo("Resultado", f"A segunda string está contida na primeira? {string2 in string1}")
+
+        button = tk.Button(root, text="Verificar Substring", command=verificar_substring)
+        button.pack()
+
+    elif exercicio == 81:
+        label_string = tk.Label(root, text="Digite uma string:")
+        label_string.pack()
+        entry_string = tk.Entry(root)
+        entry_string.pack()
+
+        def normalizar_string():
+            string = entry_string.get()
+            normalizada = ' '.join(string.split())
+            messagebox.showinfo("Resultado", f"String normalizada: {normalizada}")
+
+        button = tk.Button(root, text="Normalizar String", command=normalizar_string)
+        button.pack()
+
+    elif exercicio == 82:
+        label_string = tk.Label(root, text="Digite uma string:")
+        label_string.pack()
+        entry_string = tk.Entry(root)
+        entry_string.pack()
+
+        def encontrar_maior_palavra():
+            string = entry_string.get()
+            palavras = string.split()
+            maior = max(palavras, key=len)
+            messagebox.showinfo("Resultado", f"Maior palavra: {maior}")
+
+        button = tk.Button(root, text="Encontrar Maior Palavra", command=encontrar_maior_palavra)
+        button.pack()
+
+    elif exercicio == 83:
+        label_string = tk.Label(root, text="Digite uma string:")
+        label_string.pack()
+        entry_string = tk.Entry(root)
+        entry_string.pack()
+
+        label_inicio = tk.Label(root, text="Digite a posição inicial:")
+        label_inicio.pack()
+        entry_inicio = tk.Entry(root)
+        entry_inicio.pack()
+
+        label_fim = tk.Label(root, text="Digite a posição final:")
+        label_fim.pack()
+        entry_fim = tk.Entry(root)
+        entry_fim.pack()
+
+        def mostrar_substring():
+            string = entry_string.get()
+            inicio = int(entry_inicio.get())
+            fim = int(entry_fim.get())
+            messagebox.showinfo("Resultado", f"Substring: {string[inicio:fim]}")
+
+        button = tk.Button(root, text="Mostrar Substring", command=mostrar_substring)
+        button.pack()
+
+    elif exercicio == 84:
+        label_string = tk.Label(root, text="Digite uma string:")
+        label_string.pack()
+        entry_string = tk.Entry(root)
+        entry_string.pack()
+
+        def verificar_palindromo():
+            string = entry_string.get()
+            normalizada = ' '.join(string.split())
+            if normalizada == normalizada[::-1]:
+                messagebox.showinfo("Resultado", "A string é um palíndromo.")
+            else:
+                messagebox.showinfo("Resultado", "A string não é um palíndromo.")
+
+        button = tk.Button(root, text="Verificar Palíndromo", command=verificar_palindromo)
+        button.pack()
+
+    elif exercicio == 85:
+        label_hexadecimal = tk.Label(root, text="Digite um número hexadecimal:")
+        label_hexadecimal.pack()
+        entry_hexadecimal = tk.Entry(root)
+        entry_hexadecimal.pack()
+
+        def converter_hex_para_decimal():
+            hexadecimal = entry_hexadecimal.get()
+            decimal = int(hexadecimal, 16)
+            messagebox.showinfo("Resultado", f"Valor em decimal: {decimal}")
+
+        button = tk.Button(root, text="Converter Hexadecimal para Decimal", command=converter_hex_para_decimal)
+        button.pack()
+
+    elif exercicio == 86:
+        label_romano = tk.Label(root, text="Digite um número romano:")
+        label_romano.pack()
+        entry_romano = tk.Entry(root)
+        entry_romano.pack()
+
+        def converter_romano_para_decimal():
+            romano = entry_romano.get()
+            valores = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+            decimal = 0
+            for i in range(len(romano)):
+                if i > 0 and valores[romano[i]] > valores[romano[i - 1]]:
+                    decimal += valores[romano[i]] - 2 * valores[romano[i - 1]]
+                else:
+                    decimal += valores[romano[i]]
+            messagebox.showinfo("Resultado", f"Valor em decimal: {decimal}")
+
+        button = tk.Button(root, text="Converter Romano para Decimal", command=converter_romano_para_decimal)
+        button.pack()
+
+    elif exercicio == 87:
+        label_string1 = tk.Label(root, text="Digite a primeira string:")
+        label_string1.pack()
+        entry_string1 = tk.Entry(root)
+        entry_string1.pack()
+
+        label_string2 = tk.Label(root, text="Digite a segunda string:")
+        label_string2.pack()
+        entry_string2 = tk.Entry(root)
+        entry_string2.pack()
+
+        def comparar_strings():
+            string1 = entry_string1.get()
+            string2 = entry_string2.get()
+            if string1.lower() == string2.lower():
+                messagebox.showinfo("Resultado", "As strings são iguais.")
+            else:
+                messagebox.showinfo("Resultado", "As strings são diferentes.")
+
+        button = tk.Button(root, text="Comparar Strings", command=comparar_strings)
+        button.pack()
+
+    elif exercicio == 88:
+        label_string = tk.Label(root, text="Digite uma string:")
+        label_string.pack()
+        entry_string = tk.Entry(root)
+        entry_string.pack()
+
+        def converter_caixa_alta():
+            string = entry_string.get()
+            messagebox.showinfo("Resultado", f"String em caixa alta: {string.upper()}")
+
+        button = tk.Button(root, text="Converter para Caixa Alta", command=converter_caixa_alta)
+        button.pack()
+
+    elif exercicio == 89:
+        label_nome = tk.Label(root, text="Digite o nome completo:")
+        label_nome.pack()
+        entry_nome = tk.Entry(root)
+        entry_nome.pack()
+
+        def formatar_nome():
+            nome = entry_nome.get()
+            partes = nome.split()
+            ultimo_nome = partes[-1]
+            iniciais = '. '.join([parte[0] for parte in partes[:-1]]) + '.'
+            messagebox.showinfo("Resultado", f"Nome formatado: {ultimo_nome}, {iniciais}")
+
+        button = tk.Button(root, text="Formatar Nome", command=formatar_nome)
+        button.pack()
+
+    elif exercicio == 90:
+        label_string = tk.Label(root, text="Digite uma string:")
+        label_string.pack()
+        entry_string = tk.Entry(root)
+        entry_string.pack()
+
+        def separar_vogais_consoantes():
+            string = entry_string.get()
+            vogais = ''.join([char for char in string if char.lower() in ['a', 'e', 'i', 'o', 'u']])
+            consoantes = ''.join([char for char in string if char.lower() not in ['a', 'e', 'i', 'o', 'u'] and char.isalpha()])
+            messagebox.showinfo("Resultado", f"Vogais: {vogais}\nConsoantes: {consoantes}")
+
+        button = tk.Button(root, text="Separar Vogais e Consoantes", command=separar_vogais_consoantes)
+        button.pack()
+
+    elif exercicio == 91:
+        matriz = []
+        for i in range(5):
+            linha = []
+            for j in range(5):
+                label = tk.Label(root, text=f"Digite o valor para a posição [{i + 1},{j + 1}]:")
+                label.pack()
+                entry = tk.Entry(root)
+                entry.pack()
+                linha.append(entry)
+            matriz.append(linha)
+
+        def calcular_soma_linhas_colunas():
+            valores = [[float(entry.get()) for entry in linha] for linha in matriz]
+            somaLinhas = [sum(linha) for linha in valores]
+            somaColunas = [sum(coluna) for coluna in zip(*valores)]
+            messagebox.showinfo("Resultado", f"Soma das linhas: {somaLinhas}\nSoma das colunas: {somaColunas}")
+
+        button = tk.Button(root, text="Calcular Soma de Linhas e Colunas", command=calcular_soma_linhas_colunas)
+        button.pack()
+
+    elif exercicio == 92:
+        matriz = []
+        for i in range(5):
+            linha = []
+            for j in range(5):
+                label = tk.Label(root, text=f"Digite o valor para a posição [{i + 1},{j + 1}]:")
+                label.pack()
+                entry = tk.Entry(root)
+                entry.pack()
+                linha.append(entry)
+            matriz.append(linha)
+
+        def verificar_simetrica():
+            valores = [[float(entry.get()) for entry in linha] for linha in matriz]
+            simetrica = True
+            for i in range(5):
+                for j in range(5):
+                    if valores[i][j] != valores[j][i]:
+                        simetrica = False
+                        break
+            messagebox.showinfo("Resultado", f"A matriz é simétrica? {simetrica}")
+
+        button = tk.Button(root, text="Verificar Matriz Simétrica", command=verificar_simetrica)
+        button.pack()
+
+    elif exercicio == 93:
+        matriz = []
+        for i in range(5):
+            linha = []
+            for j in range(5):
+                label = tk.Label(root, text=f"Digite o valor para a posição [{i + 1},{j + 1}]:")
+                label.pack()
+                entry = tk.Entry(root)
+                entry.pack()
+                linha.append(entry)
+            matriz.append(linha)
+
+        def calcular_soma_diagonais():
+            valores = [[float(entry.get()) for entry in linha] for linha in matriz]
+            diagonal_principal = sum(valores[i][i] for i in range(5))
+            diagonal_secundaria = sum(valores[i][4 - i] for i in range(5))
+            messagebox.showinfo("Resultado", f"Soma da diagonal principal: {diagonal_principal}\nSoma da diagonal secundária: {diagonal_secundaria}")
+
+        button = tk.Button(root, text="Calcular Soma das Diagonais", command=calcular_soma_diagonais)
+        button.pack()
+
+    elif exercicio == 94:
+        matriz = []
+        for i in range(6):
+            linha = []
+            for j in range(6):
+                label = tk.Label(root, text=f"Digite o valor para a posição [{i + 1},{j + 1}]:")
+                label.pack()
+                entry = tk.Entry(root)
+                entry.pack()
+                linha.append(entry)
+            matriz.append(linha)
+
+        label_valor = tk.Label(root, text="Digite o valor escalar:")
+        label_valor.pack()
+        entry_valor = tk.Entry(root)
+        entry_valor.pack()
+
+        def multiplicar_matriz_escalar():
+            valores = [[float(entry.get()) for entry in linha] for linha in matriz]
+            valor = float(entry_valor.get())
+            for i in range(6):
+                for j in range(6):
+                    valores[i][j] *= valor
+            messagebox.showinfo("Resultado", f"Matriz resultante: {valores}")
+
+        button = tk.Button(root, text="Multiplicar Matriz por Escalar", command=multiplicar_matriz_escalar)
+        button.pack()
+
+    elif exercicio == 95:
+        matriz = []
+        for i in range(6):
+            linha = []
+            for j in range(6):
+                label = tk.Label(root, text=f"Digite o valor para a posição [{i + 1},{j + 1}]:")
+                label.pack()
+                entry = tk.Entry(root)
+                entry.pack()
+                linha.append(entry)
+            matriz.append(linha)
+
+        def linearizar_matriz():
+            valores = [[float(entry.get()) for entry in linha] for linha in matriz]
+            vetor = [valores[i][j] for i in range(6) for j in range(6)]
+            messagebox.showinfo("Resultado", f"Vetor linearizado: {vetor}")
+
+        button = tk.Button(root, text="Linearizar Matriz", command=linearizar_matriz)
+        button.pack()
+
+    elif exercicio == 96:
+        matriz1 = []
+        matriz2 = []
+        for i in range(3):
+            linha1 = []
+            linha2 = []
+            for j in range(4):
+                label1 = tk.Label(root, text=f"Digite o valor para a posição [{i + 1},{j + 1}] da primeira matriz:")
+                label1.pack()
+                entry1 = tk.Entry(root)
+                entry1.pack()
+                linha1.append(entry1)
+
+                label2 = tk.Label(root, text=f"Digite o valor para a posição [{i + 1},{j + 1}] da segunda matriz:")
+                label2.pack()
+                entry2 = tk.Entry(root)
+                entry2.pack()
+                linha2.append(entry2)
+            matriz1.append(linha1)
+            matriz2.append(linha2)
+
+        def calcular_soma_diferenca():
+            valores1 = [[float(entry.get()) for entry in linha] for linha in matriz1]
+            valores2 = [[float(entry.get()) for entry in linha] for linha in matriz2]
+            matriz_soma = [[valores1[i][j] + valores2[i][j] for j in range(4)] for i in range(3)]
+            matriz_diferenca = [[valores1[i][j] - valores2[i][j] for j in range(4)] for i in range(3)]
+            messagebox.showinfo("Resultado", f"Matriz soma: {matriz_soma}\nMatriz diferença: {matriz_diferenca}")
+
+        button = tk.Button(root, text="Calcular Soma e Diferença", command=calcular_soma_diferenca)
+        button.pack()
+
+    elif exercicio == 97:
+        matriz = []
+        for i in range(5):
+            linha = []
+            for j in range(5):
+                label = tk.Label(root, text=f"Digite o valor para a posição [{i + 1},{j + 1}]:")
+                label.pack()
+                entry = tk.Entry(root)
+                entry.pack()
+                linha.append(entry)
+            matriz.append(linha)
+
+        label_x = tk.Label(root, text="Digite o índice da linha/coluna a ser trocada:")
+        label_x.pack()
+        entry_x = tk.Entry(root)
+        entry_x.pack()
+
+        label_y = tk.Label(root, text="Digite o índice da linha/coluna a ser trocada:")
+        label_y.pack()
+        entry_y = tk.Entry(root)
+        entry_y.pack()
+
+        def trocar_linhas_colunas_diagonais():
+            valores = [[float(entry.get()) for entry in linha] for linha in matriz]
+            x = int(entry_x.get())
+            y = int(entry_y.get())
+            valores[x], valores[y] = valores[y], valores[x]
+            for i in range(5):
+                valores[i][x], valores[i][y] = valores[i][y], valores[i][x]
+            for i in range(5):
+                valores[i][i], valores[i][4 - i] = valores[i][4 - i], valores[i][i]
+            messagebox.showinfo("Resultado", f"Matriz modificada: {valores}")
+
+        button = tk.Button(root, text="Trocar Linhas, Colunas e Diagonais", command=trocar_linhas_colunas_diagonais)
+        button.pack()
+
+    elif exercicio == 98:
+        matriz1 = []
+        matriz2 = []
+        for i in range(4):
+            linha1 = []
+            for j in range(3):
+                label1 = tk.Label(root, text=f"Digite o valor para a posição [{i + 1},{j + 1}] da primeira matriz:")
+                label1.pack()
+                entry1 = tk.Entry(root)
+                entry1.pack()
+                linha1.append(entry1)
+            matriz1.append(linha1)
+
+        for i in range(3):
+            linha2 = []
+            for j in range(2):
+                label2 = tk.Label(root, text=f"Digite o valor para a posição [{i + 1},{j + 1}] da segunda matriz:")
+                label2.pack()
+                entry2 = tk.Entry(root)
+                entry2.pack()
+                linha2.append(entry2)
+            matriz2.append(linha2)
+
+        def multiplicar_matrizes():
+            valores1 = [[float(entry.get()) for entry in linha] for linha in matriz1]
+            valores2 = [[float(entry.get()) for entry in linha] for linha in matriz2]
+            matriz_produto = [[sum(valores1[i][k] * valores2[k][j] for k in range(3)) for j in range(2)] for i in range(4)]
+            messagebox.showinfo("Resultado", f"Matriz produto: {matriz_produto}")
+
+        button = tk.Button(root, text="Multiplicar Matrizes", command=multiplicar_matrizes)
+        button.pack()
+
+    elif exercicio == 99:
+        frequencia = [[0] * 13 for _ in range(13)]
+        def adicionar_casamento():
+            idade_homem = int(entry_idade_homem.get())
+            idade_mulher = int(entry_idade_mulher.get())
+            if idade_homem < 18 or idade_mulher < 18:
+                return
+            frequencia[idade_homem - 18][idade_mulher - 18] += 1
+            entry_idade_homem.delete(0, tk.END)
+            entry_idade_mulher.delete(0, tk.END)
+
+        def mostrar_estatisticas():
+            max_homem = max(range(13), key=lambda i: sum(frequencia[i]))
+            max_mulher = max(range(13), key=lambda i: sum([frequencia[j][i] for j in range(13)]))
+            max_combinacao = max((i, j) for i in range(13) for j in range(13) if frequencia[i][j] == max(map(max, frequencia)))
+            messagebox.showinfo("Resultado", f"Idade mais frequente dos homens: {max_homem + 18}\nIdade mais frequente das mulheres: {max_mulher + 18}\nCombinação mais frequente: ({max_combinacao[0] + 18}, {max_combinacao[1] + 18})")
+
+        label_idade_homem = tk.Label(root, text="Digite a idade do homem (ou 0 para sair):")
+        label_idade_homem.pack()
+        entry_idade_homem = tk.Entry(root)
+        entry_idade_homem.pack()
+
+        label_idade_mulher = tk.Label(root, text="Digite a idade da mulher (ou 0 para sair):")
+        label_idade_mulher.pack()
+        entry_idade_mulher = tk.Entry(root)
+        entry_idade_mulher.pack()
+
+        button_adicionar = tk.Button(root, text="Adicionar Casamento", command=adicionar_casamento)
+        button_adicionar.pack()
+
+        button_estatisticas = tk.Button(root, text="Mostrar Estatísticas", command=mostrar_estatisticas)
+        button_estatisticas.pack()
+
+    elif exercicio == 100:
+        label_n = tk.Label(root, text="Digite o tamanho da matriz (N):")
+        label_n.pack()
+        entry_n = tk.Entry(root)
+        entry_n.pack()
+
+        matriz = []
+        def criar_matriz():
+            n = int(entry_n.get())
+            for i in range(n):
+                linha = []
+                for j in range(n):
+                    label = tk.Label(root, text=f"Digite o valor para a posição [{i + 1},{j + 1}]:")
+                    label.pack()
+                    entry = tk.Entry(root)
+                    entry.pack()
+                    linha.append(entry)
+                matriz.append(linha)
+
+        def verificar_quadrado_latino():
+            n = int(entry_n.get())
+            valores = [[int(entry.get()) for entry in linha] for linha in matriz]
+            quadrado_latino = True
+            for i in range(n):
+                if sorted(valores[i]) != list(range(1, n + 1)):
+                    quadrado_latino = False
+                    break
+            if quadrado_latino:
+                for j in range(n):
+                    coluna = [valores[i][j] for i in range(n)]
+                    if sorted(coluna) != list(range(1, n + 1)):
+                        quadrado_latino = False
+                        break
+            messagebox.showinfo("Resultado", f"A matriz é um quadrado latino? {quadrado_latino}")
+
+        button_criar_matriz = tk.Button(root, text="Criar Matriz", command=criar_matriz)
+        button_criar_matriz.pack()
+
+        button_verificar = tk.Button(root, text="Verificar Quadrado Latino", command=verificar_quadrado_latino)
+        button_verificar.pack()
+
+    else:
+        label = tk.Label(root, text="Exercício ainda não implementado ou inválido.")
+        label.pack()
+
+    root.mainloop()
+
+# Função principal
+def main():
+    exercicio = selecionar_exercicio()
+    if exercicio:
+        executar_exercicio(exercicio)
+    else:
+        messagebox.showerror("Erro", "Nenhum exercício selecionado.")
+
+if __name__ == "__main__":
+    main()
